@@ -9,6 +9,9 @@ theme = "cactus"
 	mainSectionTitle = "Projects"
 	mainSection = "posts"
 	description = "hiiiiiiiiia;lkjd;lkaja;lkdj"
+	tocInline = true
+	tagsOverview = false
+
 [[menu.main]]
 name = "Home"
 url = "/"
@@ -18,3 +21,4 @@ weight = 1
 name = "All posts"
 url = "/posts"
 weight = 2
+
