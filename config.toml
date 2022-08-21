@@ -2,3 +2,7 @@ baseURL = "https://kianorr.com/"
 languageCode = "en-us"
 title = "Kian"
 theme = "cactus"
+
+[params]
+
+	colortheme = 'dark'
