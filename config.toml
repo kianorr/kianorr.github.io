@@ -8,9 +8,10 @@ theme = "cactus"
 	colortheme = 'dark'
 	mainSectionTitle = "Projects"
 	mainSection = "posts"
-	description = "hiiiiiiiiia;lkjd;lkaja;lkdj"
+	description = "helllloooo"
 	tocInline = true
 	tagsOverview = false
+	dateFormat = ""
 
 [[menu.main]]
 name = "Home"
