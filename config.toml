@@ -6,3 +6,6 @@ theme = "cactus"
 [params]
 
 	colortheme = 'dark'
+	mainSectionTitle = "Projects"
+	mainSection = "posts"
+	description = "hiiiiiiiii"
