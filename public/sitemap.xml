@@ -2,17 +2,21 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://www.kianorr.com/posts/my-first-post/</loc>
-    <lastmod>2022-08-20T16:24:00-07:00</lastmod>
+    <loc>https://kianorr.com/</loc>
+    <priority>0</priority>
   </url><url>
-    <loc>https://www.kianorr.com/</loc>
-    <lastmod>2022-08-20T16:24:00-07:00</lastmod>
+    <loc>https://kianorr.com/posts/books/</loc>
   </url><url>
-    <loc>https://www.kianorr.com/posts/</loc>
-    <lastmod>2022-08-20T16:24:00-07:00</lastmod>
+    <loc>https://kianorr.com/categories/</loc>
   </url><url>
-    <loc>https://www.kianorr.com/categories/</loc>
+    <loc>https://kianorr.com/research/acoustics/</loc>
   </url><url>
-    <loc>https://www.kianorr.com/tags/</loc>
+    <loc>https://kianorr.com/research/pic/</loc>
+  </url><url>
+    <loc>https://kianorr.com/posts/</loc>
+  </url><url>
+    <loc>https://kianorr.com/research/</loc>
+  </url><url>
+    <loc>https://kianorr.com/tags/</loc>
   </url>
 </urlset>

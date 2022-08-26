@@ -4,3 +4,12 @@
 [submodule "themes/hugo-simplecss"]
 	path = themes/hugo-simplecss
 	url = https://github.com/splch/hugo-simplecss.git
+[submodule "themes/zzo"]
+	path = themes/zzo
+	url = https://github.com/zzossig/hugo-theme-zzo.git
+[submodule "themes/ananke"]
+	path = themes/ananke
+	url = https://github.com/theNewDynamic/gohugo-theme-ananke.git
+[submodule "themes/PaperMod"]
+	path = themes/PaperMod
+	url = https://github.com/adityatelange/hugo-PaperMod.git
