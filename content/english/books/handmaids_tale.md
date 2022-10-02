@@ -3,21 +3,21 @@ title: "Handmaid's Tale"
 draft: false
 ---
 <!--more-->
-### Freedom/choice.
+### freedom/choice
 
 > "There is more than one kind of freedom, said Aunt Lydia. Freedom to and freedom from. In the days of anarchy, it was freedom to. Now you are being given freedom from. Don't underrate it"(24).
 
 The restrictions of certain freedoms (freedoms to) give freedom from the dangers of the world. But then, you don't have any will or power in what you are doing with your life. 
 
-### The Idea of Ordinary.
+### the idea of ordinary.
 
 Anything is ordinary once you get used to it. Similar to how if change happens, you have to embrace it, like in *Parable*. Although, I'm pretty sure that's not the message that *Handmaid's Tale* is trying to send. In *Parable*, it was a chance for hope, while in *Handmaid's*, it's more depressing, especially since it was coming from Aunt Lydia. Nevertheless, it is true.
 
-### Sexism.
+### sexism
 
 that's the whole point
 
-### Miscellaneous quotes.
+### miscellaneous quotes
     
 > "But remember that forgiveness too is a power. To beg for it is a power, and to withhold or bestow it is a power, perhaps the greatest"(134).
     

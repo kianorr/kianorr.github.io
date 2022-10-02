@@ -20,13 +20,22 @@ languages:
     languageName: Svenska
     weight: 2
 
+assets:
+  theme_color: '#0000FF'
+  favion: 'static/pic_two_stream.png'
+
+cover:
+  images: 'static/pic_two_stream.png'
+  linkFullImages: true
+  responsiveImages: true
+  
 params:
-  cover:
-    linkFullImages: true
-    responsiveImages: true
+
   hideFooter: true
+  ShowPostNavLinks: false
   ShowToc: true
   ShowBreadCrumbs: false
+  
   homeInfoParams:
       Title: "about me"
       Content: Hello, my name is kian johan nils orr and this is my page! :) It features different areas of my life that I am passionate about, like physics research, books, or graphic design.
