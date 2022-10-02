@@ -1,5 +1,5 @@
 ---
-title: "Particle in Cell from Scratch"
+title: "particle in cell from scratch"
 math:
     enable: true
 draft: false

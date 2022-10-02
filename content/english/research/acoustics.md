@@ -1,5 +1,5 @@
 ---
-title: "Optimal Concert Hall"
+title: "concert hall simulation"
 mathjax: true
 katex: true
 markup: 'mmark'
