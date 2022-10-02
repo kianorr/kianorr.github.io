@@ -1,14 +1,14 @@
 baseURL: "https://kianorr.com/"
-title: Kian
+title: ~kian~
 theme: PaperMod
 paginate: 5
 math:
   enable: true
 
-# languageCode: "en-us"
-# contentDir: content/english
 defaultContentLanguage: en
 defaultContentLanguageInSubdir: false
+disableLanguages:
+- se
 
 languages:
   en:
@@ -21,9 +21,13 @@ languages:
     weight: 2
 
 params:
+  cover:
+    linkFullImages: true
+    responsiveImages: true
+  hideFooter: true
   ShowToc: true
-  ShowBreadCrumbs: true
+  ShowBreadCrumbs: false
   homeInfoParams:
       Title: "about me"
-      Content: Hello, my name is Kian Johan Nils Orr and this is my page! :) It features different areas of my life that I am passionate about, like physics research, books, or graphic design.
+      Content: Hello, my name is kian johan nils orr and this is my page! :) It features different areas of my life that I am passionate about, like physics research, books, or graphic design.
 

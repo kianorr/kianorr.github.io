@@ -3,9 +3,13 @@ title: "particle in cell from scratch"
 math:
     enable: true
 draft: false
+weight: 1
 ---
-## What is particle in cell?
-Particle in cell (PIC) is a method to simulate the movement of particles under a force of some kind, which in my case is the electric force, essentially simulating a plasma. At it's core, a PIC code uses a mesh grid that has bins/cells. The edges of these bins are described by two $x$ coordinates, $x_j$ and $x_{j+1}$, and within that bin is a particle $i$ with location $r_i$. And from these particle locations, a denisty can be calculated at the edges as
+## what is particle in cell?
+Particle in cell (PIC) is a method to simulate the movement of particles under a force of some kind, 
+which in my case is the electric force, essentially simulating a plasma. At it's core, a (1D) PIC code uses a mesh grid that has bins/cells. 
+The edges of these bins are described by two $x$ coordinates, $x_j$ and $x_{j+1}$ (of course, in 2D or 3D, there's more coords), and within that bin is a particle $i$ with location $r_i$. 
+And from these particle locations, a denisty can be calculated at the edges as
 
 $$
 \rho_j = \sum_{i=0}^{N_p}\frac{x_{j+1} - r_i}{\Delta x}, \quad \rho_{j+1}=\sum_{i=0}^{N_p}\frac{r_i - x_{j}}{\Delta x},
@@ -19,4 +23,8 @@ $$
 \nabla \times E = 0, \quad \nabla \times B = 0.
 $$
 
-## Two stream instability
+## two stream instability
+This is an example of two stream instability:
+![pic](/pic_two_stream.png#center)
+
+The full animation is on my github.
