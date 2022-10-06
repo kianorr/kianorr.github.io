@@ -9,7 +9,7 @@ draft: false
 
 The restrictions of certain freedoms (freedoms to) give freedom from the dangers of the world. But then, you don't have any will or power in what you are doing with your life. 
 
-### the idea of ordinary.
+### the idea of ordinary
 
 Anything is ordinary once you get used to it. Similar to how if change happens, you have to embrace it, like in *Parable*. Although, I'm pretty sure that's not the message that *Handmaid's Tale* is trying to send. In *Parable*, it was a chance for hope, while in *Handmaid's*, it's more depressing, especially since it was coming from Aunt Lydia. Nevertheless, it is true.
 

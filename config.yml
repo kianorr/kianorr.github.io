@@ -36,7 +36,7 @@ params:
   ShowToc: true
   ShowBreadCrumbs: false
   
-  homeInfoParams:
-      Title: "about me"
-      Content: Hello, my name is kian johan nils orr and this is my page! :) It features different areas of my life that I am passionate about, like physics research, books, or graphic design.
+  #homeInfoParams:
+      #Title: "about me"
+      #Content: Hello, my name is kian johan nils orr and this is my page! :) It features different areas of my life that I am passionate about, like physics research, books, or graphic design.
 
