@@ -1,7 +1,7 @@
 baseURL: "https://kianorr.com/"
 title: ~kian~
 theme: PaperMod
-paginate: 5
+paginate: 4
 math:
   enable: true
 
