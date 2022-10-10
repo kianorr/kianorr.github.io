@@ -1,9 +1,7 @@
 ---
 title: "graphic design"
 draft: false
-cover:
-  image: "<pic_two_stream.png>"
-  relative: true
 ---
+All of my graphic design stuff will go here but I'm having trouble with sizing issues :p
 
-oops, nothing yet
+![saturn](/saturn.png#center)
