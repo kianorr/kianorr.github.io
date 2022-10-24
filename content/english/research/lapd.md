@@ -6,4 +6,8 @@ weight: 3
 ![lapd](/lapd.png)
 _a picture of the large plasma device_
 
-I am in the process of making an APS DPP poster for this research so that will be up soon :)
+Most of my research done at UCLA is summarized in a poster:
+[Survery Spectroscopy in the Large Plasma Device](/poster.pdf).
+I presented this poster at APS DPP 2022.
+
+![poster](/poster-1.png)
