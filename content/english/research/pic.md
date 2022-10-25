@@ -12,7 +12,6 @@ All of the code is on my
 [github](https://github.com/kianorr/PIC_from_scratch), along with more detailed
 explanations in the jupyter notebook.
 
-
 ![pic](/pic_two_stream.png#center)
 *A result of my PIC code. The full animation is at the bottom of the page.*
 
@@ -116,7 +115,7 @@ which is what we plug back in to our original acceleration.
 We repeat this process until a time $t_{final}$.
 
 ## plasma background
-To produce a two stream instability with my PIC code, I first had to 
+To produce something like a two stream instability with my PIC code, I first had to 
 understand some plasma basics. 
 
 ### fundamental equations
