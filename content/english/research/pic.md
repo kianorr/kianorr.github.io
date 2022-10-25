@@ -4,22 +4,23 @@ math:
     enable: true
 draft: false
 weight: 1
-
 ---
 
-## intro
 This code was made for the final project of a computational physics class at
-UCLA. It was my introduction to computational plasma physics.
-<!--more-->
+UCLA. It was my introduction to computational plasma physics. <!--more-->
+All of the code is on my 
+[github](https://github.com/kianorr/PIC_from_scratch), along with more detailed
+explanations in the jupyter notebook.
+
 
 ![pic](/pic_two_stream.png#center)
 *A result of my PIC code. The full animation is at the bottom of the page.*
 
 ## what is particle in cell?
 Particle in cell (PIC) is a method to simulate the movement of particles under a force of some kind, 
-which in my case is the electric force, essentially simulating a plasma. At it's core, a (1D) PIC code uses a mesh grid that has bins/cells. 
+which in my case is the force from an electric field, essentially simulating a plasma. At it's core, a (1D) PIC code uses a mesh grid that has bins/cells. 
 The edges of these bins are described by two $x$ coordinates, $x_j$ and $x_{j+1}$ (of course, in 2D or 3D, there's more coords), and within that bin is a particle $i$ with location $r_i$. 
-And from these particle locations, a denisty can be calculated at the edges as (from Birdsall)
+And from these particle locations, a denisty can be calculated at the edges as 
 
 $$
 \rho_j = \sum_{i=0}^{N_p}\frac{x_{j+1} - r_i}{\Delta x}, \quad \rho_{j+1}=\sum_{i=0}^{N_p}\frac{r_i - x_{j}}{\Delta x},
@@ -32,6 +33,87 @@ $$
 \\\\
 \nabla \times E = 0, \quad \nabla \times B = 0.
 $$
+
+We ultimately want to find the acceleration
+
+$$
+F = ma = -qE
+\\\\
+\implies a = -\frac{q}{m}E = -\frac{q}{m}\frac{\text{d}\phi}{\text{d}x},
+$$
+
+as that is what pushes the particles. $\phi$ is found through combining the $E$
+maxwell equations, such that
+
+\begin{equation}
+\frac{\text{d}^2\phi}{\text{d}x^2} = \rho \qquad \text{poisson's equation}.
+\end{equation}
+
+And from acceleration, we can find velocity and position, giving us 
+our phase space.
+
+## solving methods
+Poisson's equation can be estimated using the finite difference method so I
+tried that first. The second derivative of a general function using the finite
+difference method yields
+
+$$
+f''(a) = \frac{f(a) - 2f(a+h) + f(a+2h)}{h^2}.
+$$
+
+If we apply this function to our $\phi$, we can define $f(a+h)$ as $\phi_j$, so then from equation $1$,
+
+$$
+\frac{\text{d}^2\phi}{\text{d}x^2} = \frac{\phi_{j-1} - 2\phi_j + \phi_{j+1}}{\Delta x^2}=\rho.
+$$
+But using the matrix that comes from this finite difference equation doesn't
+get us anywhere because it's not invertible :( .... so we will use a 
+method involving a discrete fourier transform instead. According to 
+Birdsall, we know that
+$$
+\phi(k) = \frac{\rho(k)}{k^2} \quad \text{and} \quad k = \frac{2n\pi}{L},
+$$
+where $\rho(k)$ is our charge density. To transform to $\rho(k)$, we use
+
+$$
+G(k) = \Delta x \sum_{j=0}^N{G(x_j)} e^{-ikx_j}
+$$
+and to transform back to $\phi(x)$, we use the inverse DFT
+$$
+G(x_j) = \frac{1}{L} \sum_{n=-N/2}^{N/2}{G(k)} e^{ikx_j}.
+$$
+
+Using $\phi$, we can now find $E$. Since we are only looking at the electric field from bin to bin in the mesh, we can approximate it as just the slope between two points, $\phi_{j-1}$ and $\phi_{j+1}$, such that
+
+$$
+E_j = \frac{\text{d}\phi(x_j)}{\text{d}x} = \frac{\phi_{j+1} - \phi_{j-1}}{2 \Delta x},
+$$
+
+which is represented in matrix form as
+
+$$
+E = \frac{1}{{2 \Delta x}}
+\begin{pmatrix}
+0 & 1 & 0 & \dots & 0 & -1 \\\\
+-1 & 0 & 1 &  & & 0\\\\
+0 & -1 & 0 &  &  &  \vdots\\\\
+\vdots  &   & &  \ddots & & 0\\\\
+0 &  & & -1 &  & 1\\\\
+1 & 0 & \dots& 0 & -1 & 0
+\end{pmatrix}
+$$
+
+We want the electric field at the locations of the particles within a 
+bin at $r_i$. Thus, we essentially take a weighted average of the 
+electric fields at $E_j$ and $E_{j+1}$ with weights used earlier to get
+the total electric field at $r_i$, such that
+
+$$
+E_i = \frac{x_{j+1} - r_i}{\Delta x} E_j + \frac{r_i - x_{j}}{\Delta x} E_{j+1},
+$$
+
+which is what we plug back in to our original acceleration. 
+We repeat this process until a time $t_{final}$.
 
 ## plasma background
 To produce a two stream instability with my PIC code, I first had to 
