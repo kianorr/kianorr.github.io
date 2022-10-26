@@ -10,7 +10,7 @@ This code was made for the final project of a computational physics class at
 UCLA. It was my introduction to computational plasma physics. <!--more-->
 All of the code is on my 
 [github](https://github.com/kianorr/PIC_from_scratch), along with more detailed
-explanations in the jupyter notebook.
+explanations and code tests in the jupyter notebook.
 
 ![pic](/pic_two_stream.png#center)
 *A result of my PIC code. The full animation is at the bottom of the page.*
@@ -53,8 +53,14 @@ our phase space.
 
 ## solving methods
 Poisson's equation can be estimated using the finite difference method so I
-tried that first. The second derivative of a general function using the finite
+tried that first. The first derivative of a general function using the finite
 difference method yields
+
+$$
+f'(a) = \frac{f(a+h)-f(a)}{h},
+$$
+
+so then
 
 $$
 f''(a) = \frac{f(a) - 2f(a+h) + f(a+2h)}{h^2}.
