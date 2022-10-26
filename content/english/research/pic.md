@@ -171,7 +171,7 @@ $$
 -i \omega n_1 + i k n_0 v_1 = 0.
 $$
 
-This process is done for all 3 equations in $(1), (2)$ and $(3)$, 
+This process is done for all 3 equations in $(2), (3)$ and $(4)$, 
 so we end up with 2 sets of 3 equations, which leads to the results of
 
 \begin{align}
@@ -189,7 +189,7 @@ There is also a constant background of ions that do not move through out
 the simulation such that the plasma is quasi-neutral. 
 Since these ions are immobile, they essentially have an infinite mass. 
 Additionaly, $v_{0_1} = 0$ and $v_{0_2} = v_0 \neq 0$. 
-If we apply these conditions to $(2)$, we find that
+If we apply these conditions to $(2), (3)$ and $(4)$, we find that
 
 \begin{align} 
     &\partial_t v_i + v_i \partial_x v_i = -\frac{e}{m} E
@@ -202,15 +202,17 @@ If we apply these conditions to $(2)$, we find that
 Following the same process we did for plasma oscillations, we end up with
 
 \begin{gather}
-\left[1 - \frac{\omega_p}{\omega^2} + \frac{\omega_p}{\omega-kv_0}\right]E_1 = 0\\
+\left[1 - \frac{\omega_p}{\omega^2} + \frac{\omega_p}{\omega-kv_0}\right]E_1 = 0
+\\\\
 \implies 1 - \frac{\omega_{p_1}^2}{(\omega-kv_{0_1})^2} - \frac{\omega_{p_2}^2}{(\omega-kv_{0_2})^2} = 0
 \end{gather}
 
-which means that when $\omega_{p_1}=\omega_{p_2}=\omega_{p_e} and v_{0_1}=-v_{0_2}=v_0$,
+which means that when $\omega_{p_1}=\omega_{p_2}=\omega_{p_e}$ and 
+$v_{0_1}=-v_{0_2}=v_0$,
 
-\begin{align}
-    \implies &1 = \frac{1}{\hat{\omega} - \alpha} + \frac{1}{\hat{\omega} + \alpha},
-\end{align}
+$$
+1 = \frac{1}{\hat{\omega} - \alpha} + \frac{1}{\hat{\omega} + \alpha},
+$$
 
 where
 
@@ -218,7 +220,9 @@ $$
 \omega_p = \frac{n_0 e^2}{\epsilon_0m}, \qquad \hat{\omega} = \frac{\omega}{\omega_p}, \qquad \alpha = \frac{kv_0}{\omega_p}.
 $$
 
-And as the phase space shows, unstable modes appear in the plasma, even with low temperatures. The fastest growing mode $k_{max}$ by maximizing $\hat{\omega}$ with respect to $\alpha$, such that
+And as the phase space shows, unstable modes appear in the plasma, 
+even with low temperatures. The fastest growing mode $k_{max}$ is found by 
+maximizing $\hat{\omega}$ with respect to $\alpha$, such that
 
 \begin{gather}
 \frac{\text{d}\hat{\omega}}{\text{d}\alpha} = 0
@@ -226,8 +230,21 @@ And as the phase space shows, unstable modes appear in the plasma, even with low
 \implies k_{max} = \frac{\sqrt{3}}{2}\frac{\omega_{p_e}}{v_0}.
 \end{gather}
 
-And the fastest growing mode corresponds to the number of phase space holes. At $v_0\simeq \pm 10 \Delta x \omega_{p_e}$, there should be one phase space hole, while at $v_0\simeq \pm 2-5 \Delta x \omega_{p_e}$, there should be many phase space holes.
+And the fastest growing mode corresponds to the number of phase space holes.
+At $v_0\simeq \pm 10 \Delta x \omega_{p_e}$, there should be one phase 
+space hole, while at $v_0\simeq \pm 2\Delta x \omega_{p_e}$, there 
+should be many phase space holes.
 
 ## results --- two stream instability
-This is an example of two stream instability with my PIC code:
+This is an example of two stream instability with my PIC code (it goes quite
+fast so feel free to slow it down or click through it):
 {{< video src="/dx2.mp4" type="video/mp4" preload="auto" >}}
+
+There's a couple problems with the results. One being that the animation is 
+quite rigid and squarish. Maybe something to do with my solver?
+
+The other problem being the amount of phase space holes.
+With $v_0\simeq \pm 2 \Delta x \omega_{p_e}$, I would expect more than just
+two holes, while with $v_0\simeq \pm 10 \Delta x \omega_{p_e}$ (not here), I would expect
+only one, but I also get two holes. To solve this, I think I would have to
+dig into the physics more.
