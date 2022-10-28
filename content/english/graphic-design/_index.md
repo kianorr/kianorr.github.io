@@ -2,6 +2,24 @@
 title: "graphic design"
 draft: false
 ---
-All of my graphic design stuff will go here but I'm having trouble with sizing issues :p
 
-![saturn](/saturn.png#center)
+This is some of my graphic design stuff --- enjoy!
+___
+
+![saturn](/saturn.png)
+_saturn in neon_
+
+&nbsp;
+
+![penguin](/penguin.png)
+_penguin!_
+
+&nbsp;
+
+![soda](/soda.png)
+_a cute soda bottle and it's cap :)_
+
+&nbsp;
+
+![bookmark](/bookmark.png)
+_a bookmark that I made for my mom but I'm pretty proud of it_
