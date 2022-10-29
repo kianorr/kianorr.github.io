@@ -5,11 +5,17 @@ paginate: 5
 math:
   enable: true
 enableInlineShortcodes: true
+
+markup:
+  markup.goldmark:
+    markup.goldmark.renderer:
+      unsafe: true
+
 defaultContentLanguage: en
 defaultContentLanguageInSubdir: false
 disableLanguages:
 - se
-
+        
 languages:
   en:
     contentDir: content/english

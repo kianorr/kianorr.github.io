@@ -4,22 +4,24 @@ draft: false
 ---
 
 This is some of my graphic design stuff --- enjoy!
+
+<!--more-->
 ___
 
-![saturn](/saturn.png)
-_saturn in neon_
+![saturn](/saturn.png#center)
+{{< center >}} saturn in neon {{< /center >}}
 
 &nbsp;
 
-![penguin](/penguin.png)
-_penguin!_
+![penguin](/penguin.png#center)
+{{< center >}} penguin! {{< /center >}}
 
 &nbsp;
 
-![soda](/soda.png)
-_a cute soda bottle and it's cap :)_
+![soda](/soda.png#center)
+{{< center >}} a cute soda bottle and it's cap :) {{< /center >}}
 
 &nbsp;
 
-![bookmark](/bookmark.png)
-_a bookmark that I made for my mom but I'm pretty proud of it_
+![bookmark](/bookmark_sideways.png#center)
+{{< center >}} a bookmark that I made for my mom that I am pretty proud of  {{< /center >}}
