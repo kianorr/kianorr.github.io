@@ -1,5 +1,5 @@
 ---
-title: "graphic design"
+title: "❐ graphic design"
 draft: false
 ---
 
