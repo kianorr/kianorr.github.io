@@ -244,7 +244,7 @@ should be many phase space holes.
 ## results --- two stream instability
 This is an example of two stream instability with my PIC code (it goes quite
 fast so feel free to slow it down or click through it):
-{{< video src="/dx2.mp4" type="video/mp4" preload="auto" >}}
+{{< video src="/dx2.mp4" type="video/mp4" preload="auto" playbackspeed="0.5" >}}
 
 There's a couple problems with the results. One being that the animation is 
 quite rigid and squarish. Maybe something to do with my solver?
