@@ -6,43 +6,37 @@ math:
   enable: true
 enableInlineShortcodes: true
 
-markup:
-  markup.goldmark:
-    markup.goldmark.renderer:
-      unsafe: true
 
-defaultContentLanguage: en
-defaultContentLanguageInSubdir: false
+
+#defaultContentLanguage: en
+#defaultContentLanguageInSubdir: false
 disableLanguages:
-- se
-        
+ - se  
 languages:
   en:
     contentDir: content/english
     languageName: English
     weight: 1
-  'se':
+    menu:
+        main:
+            - name: GitHub
+              url: "https://github.com/kianorr"
+  se:
     contentDir: content/swedish
     languageName: Svenska
     weight: 2
 
-assets:
-  theme_color: '#0000FF'
-  favion: 'static/pic_two_stream.png'
-
-cover:
-  images: 'static/pic_two_stream.png'
-  linkFullImages: true
-  responsiveImages: true
-  
 params:
-
   hideFooter: true
   ShowPostNavLinks: false
   ShowToc: true
   ShowBreadCrumbs: false
-  
+  assets:
+    favicon: "/jupiter.png"
+
+  socialIcons:
+          - name: github
+            url: "https://github.com/adityatelange/hugo-PaperMod"
   #homeInfoParams:
       #Title: "about me"
       #Content: Hello, my name is kian johan nils orr and this is my page! :) It features different areas of my life that I am passionate about, like physics research, books, or graphic design.
-
