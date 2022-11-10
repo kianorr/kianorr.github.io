@@ -11,7 +11,7 @@ enableInlineShortcodes: true
 #defaultContentLanguage: en
 #defaultContentLanguageInSubdir: false
 disableLanguages:
- - se  
+ - se
 languages:
   en:
     contentDir: content/english
@@ -21,6 +21,8 @@ languages:
         main:
             - name: GitHub
               url: "https://github.com/kianorr"
+            - name: blog
+              url: "./blog/"
   se:
     contentDir: content/swedish
     languageName: Svenska

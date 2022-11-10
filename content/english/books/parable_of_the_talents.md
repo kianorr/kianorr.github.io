@@ -1,10 +1,10 @@
 ---
 title: "Parable of the Talents"
 draft: false
+summary: There's a lot of emphasis on education; the parable of the talents is basically a story about how one should spread and teach others their talents, rather than keep them for themselves. This is also a core value of Earthseed. There is a big emphasis on education because without it 
 ---
 
 ### education
-
 There's a lot of emphasis on education; the parable of the talents is basically a story about how one should spread and teach others their talents, rather than keep them for themselves. This is also a core value of Earthseed. There is a big emphasis on education because without it 
 
 ### change

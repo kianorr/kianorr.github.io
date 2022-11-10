@@ -1,11 +1,10 @@
 ---
 title: "❐ graphic design"
 draft: false
+summary: This is some of my graphic design stuff --- enjoy!
 ---
 
 This is some of my graphic design stuff --- enjoy!
-
-<!--more-->
 ___
 
 ![saturn](/saturn.png#center)

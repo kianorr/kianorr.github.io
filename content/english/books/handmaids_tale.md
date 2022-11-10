@@ -1,8 +1,9 @@
 ---
 title: "Handmaid's Tale"
 draft: false
+summary: The restrictions of certain freedoms (freedoms to) give freedom from the dangers of the world. But then, you don't have any will or power in what you are doing with your life. 
 ---
-<!--more-->
+
 ### freedom/choice
 
 > "There is more than one kind of freedom, said Aunt Lydia. Freedom to and freedom from. In the days of anarchy, it was freedom to. Now you are being given freedom from. Don't underrate it"(24).
