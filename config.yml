@@ -19,11 +19,11 @@ languages:
     weight: 1
     menu:
         main:
-            - name: GitHub
+            - name: github
               url: "https://github.com/kianorr"
             - name: blog
               url: "./blog/"
-            - name: CV
+            - name: cv
               url: "./cv"
   se:
     contentDir: content/swedish
