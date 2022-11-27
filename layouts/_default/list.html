@@ -100,6 +100,7 @@
 <ul style="list-style-type:none;">
 {{ range .Pages }}
 	{{if ne .Title "blog"}}
+	{{if ne .Title "Kian Orr | Curriculum Vitae"}}
 	    <li>
 	        <h3>
 	            <br>
@@ -111,6 +112,7 @@
 	            <p>{{ .Summary | plainify | htmlUnescape }}{{ if .Truncated }}...{{ end }}</p>
 	        </div>
 	    </li>
+    {{end}}
     {{end}}
 {{ end }}
 </ul>

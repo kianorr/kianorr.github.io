@@ -23,6 +23,8 @@ languages:
               url: "https://github.com/kianorr"
             - name: blog
               url: "./blog/"
+            - name: CV
+              url: "./cv"
   se:
     contentDir: content/swedish
     languageName: Svenska
