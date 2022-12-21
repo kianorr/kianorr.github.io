@@ -25,6 +25,8 @@ languages:
               url: "./blog/"
             - name: cv
               url: "./cv"
+            - name: research
+              url: "./research"
   se:
     contentDir: content/swedish
     languageName: Svenska
