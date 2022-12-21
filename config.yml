@@ -21,12 +21,21 @@ languages:
         main:
             - name: github
               url: "https://github.com/kianorr"
-            - name: blog
-              url: "./blog/"
+              weight: 10
+            # - name: blog
+              # url: "./blog/"
             - name: cv
               url: "./cv"
+              weight: 9
             - name: research
               url: "./research"
+              weight: 1
+            - name: design
+              url: "./graphic-design"
+              weight: 2
+            - name: books
+              url: "./books"
+              weight: 3
   se:
     contentDir: content/swedish
     languageName: Svenska

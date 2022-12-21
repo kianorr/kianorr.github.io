@@ -98,10 +98,14 @@
 </article> -->
 
 <ul style="list-style-type:none;">
-{{ range .Pages }}
+
+{{ range .Pages}}
 	
-	{{if ne .Title "blog"}}
+	{{if ne .Title "✐ book reviews"}}
+	{{if ne .Title "⧲ research"}}
+	{{if ne .Title "❐ graphic design"}}
 	{{if ne .Title "Kian Orr | Curriculum Vitae"}}
+	{{if ne .Title "blog"}}
 	    <li>
 	        <h3>
 	            <br>
@@ -120,10 +124,37 @@
   	{{- end }}
     {{end}}
     {{end}}
+    {{end}}
+    {{end}}
+    {{end}}
 {{ end }}
 </ul>
 
-
+<ul style="list-style-type:none;">
+{{ range .Pages}}
+	{{ if eq .Title "blog"}}
+		{{ range (where .Site.RegularPages "Section" "blog") }}
+			
+			    <li>
+			        <h4>
+			            <br>
+			                <a href="{{.Permalink}}">{{.Title}}</a>
+			                {{- if .Draft }}<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>{{- end }}
+			            </br>
+			        </h4>
+			        <div class="entry-content">
+			            <p>{{ .Summary | plainify | htmlUnescape }}{{ if .Truncated }}...{{ end }}</p>
+			        </div>
+			    </li>
+				{{- if not (.Param "hideMeta") }}
+				  <footer class="entry-footer">
+				    {{- partial "post_meta.html" . -}}
+				  </footer>
+			  	{{- end }}
+		{{ end }}
+	{{ end }}
+{{ end }}
+</ul>
 
 {{- if gt $paginator.TotalPages 1 }}
 <footer class="page-footer">
