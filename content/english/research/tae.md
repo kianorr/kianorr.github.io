@@ -1,5 +1,6 @@
 ---
 title: TAE
+tags: ["physics"]
 ---
 ![FRC](https://www.researchgate.net/publication/303845074/figure/fig8/AS:669651151376416@1536668684973/Field-reversed-configuration-Reprint-from-Figs-2e5-of-Ref-50.jpg)
 

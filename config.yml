@@ -1,11 +1,10 @@
 baseURL: "https://kianorr.com/"
-title: ~kian~
+title: Kian Orr
 theme: PaperMod
 paginate: 5
 math:
   enable: true
 enableInlineShortcodes: true
-
 
 
 #defaultContentLanguage: en
@@ -14,6 +13,9 @@ disableLanguages:
  - se
 languages:
   en:
+    cover:
+        image: "/sweden.jpg"
+        relative: true
     contentDir: content/english
     languageName: English
     weight: 1
@@ -42,16 +44,21 @@ languages:
     weight: 2
 
 params:
+  images: "/sweden.jpg"
+  label:
+        text: "⌂ kian"
+        # icon: "/sweden.jpg"
   hideFooter: true
   ShowPostNavLinks: false
   ShowToc: true
   ShowBreadCrumbs: false
+  
   assets:
     favicon: "/jupiter.png"
 
   socialIcons:
           - name: github
             url: "https://github.com/adityatelange/hugo-PaperMod"
-  #homeInfoParams:
-      #Title: "about me"
-      #Content: Hello, my name is kian johan nils orr and this is my page! :) It features different areas of my life that I am passionate about, like physics research, books, or graphic design.
+  # homeInfoParams:
+      # Title: ""
+      # Content:

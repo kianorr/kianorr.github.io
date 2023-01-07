@@ -4,6 +4,7 @@ math:
     enable: true
 draft: false
 weight: 1
+tags: ["code", "physics"]
 ---
 
 This code was made for the final project of a computational physics class at

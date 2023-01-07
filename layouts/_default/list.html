@@ -100,7 +100,8 @@
 <ul style="list-style-type:none;">
 
 {{ range .Pages}}
-	
+	{{- $isHidden := (site.Params.cover.hidden | default site.Params.cover.hiddenInList) }}
+	{{- partial "cover.html" (dict "cxt" . "IsHome" true "isHidden" $isHidden) }}
 	{{if ne .Title "✐ book reviews"}}
 	{{if ne .Title "⧲ research"}}
 	{{if ne .Title "❐ graphic design"}}

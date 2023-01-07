@@ -2,6 +2,7 @@
 title: "❐ graphic design"
 draft: false
 summary: This is some of my graphic design stuff --- enjoy!
+tags: ["graphic design"]
 ---
 
 This is some of my graphic design stuff --- enjoy!

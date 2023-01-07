@@ -1,9 +1,6 @@
 ---
 title: "⧲ research"
 draft: false
-cover:
-  image: "<https://i.ibb.co/K0HVPBd/paper-mod-profilemode.png>"
-  relative: false
 weight: 1
 ---
 
