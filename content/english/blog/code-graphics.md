@@ -1,6 +1,7 @@
 ---
 title: "code and graphic design"
 date: 2022-12-20
+tags: ["python"]
 ---
 I wanted to look into the intersection between graphic design and code.
 I found a program called Processing, where you can code in Java, C++ or Python.
