@@ -253,16 +253,16 @@
 }
 
 .toc {
-    margin: 0 2px 40px 2px;
-    border: 1px solid var(--border);
-    background: var(--code-bg);
+    margin: 0 2px 40px 0px;
+    /*border: 1px solid var(--border);*/
+    /*background: var(--code-bg);*/
     border-radius: var(--radius);
     padding: 0.4em;
 }
 
-.dark .toc {
+/*.dark .toc {
     background: var(--entry);
-}
+}*/
 
 .toc details summary {
     cursor: zoom-in;
@@ -275,11 +275,11 @@
 
 .toc .details {
     display: inline;
-    font-weight: 500;
+    font-weight: 800;
 }
 
 .toc .inner {
-    margin: 0 20px;
+    margin: 0 40px;
     padding: 10px 20px;
 }
 
