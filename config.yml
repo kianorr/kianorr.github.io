@@ -46,12 +46,12 @@ languages:
 params:
   images: "/sweden.jpg"
   label:
-        text: "⌂ kian"
+        text: "⌂ kian orr"
         # icon: "/sweden.jpg"
   hideFooter: true
   ShowPostNavLinks: false
   ShowToc: true
-  ShowBreadCrumbs: false
+  ShowBreadCrumbs: true
   
   assets:
     favicon: "/jupiter.png"
