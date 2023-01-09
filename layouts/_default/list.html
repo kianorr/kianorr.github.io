@@ -131,11 +131,11 @@
 {{ end }}
 </ul>
 
-
-<h1> recent posts </h1>
 <ul style="list-style-type:none;">
 {{ range .Pages}}
 	{{ if eq .Title "blog"}}
+  <h1> recent posts </h1>
+  
 		{{ range (where .Site.RegularPages "Section" "blog") }}
 			
 			    <li>
