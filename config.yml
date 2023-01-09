@@ -21,18 +21,16 @@ languages:
     weight: 1
     menu:
         main:
-            - name: github
-              url: "https://github.com/kianorr"
-              weight: 10
-            # - name: blog
-              # url: "./blog/"
-            - name: cv
+            - name: posts
+              url: "./blog/"
+              weight: 8
+            - name: CV
               url: "./cv"
               weight: 9
             - name: research
               url: "./research"
               weight: 1
-            - name: design
+            - name: graphic design
               url: "./graphic-design"
               weight: 2
             - name: books
@@ -58,7 +56,7 @@ params:
 
   socialIcons:
           - name: github
-            url: "https://github.com/adityatelange/hugo-PaperMod"
-  # homeInfoParams:
-      # Title: ""
-      # Content:
+            url: "https://github.com/kianorr"
+  homeInfoParams:
+      Title: "hello ☾"
+      Content: "my name is kian johan nils orr and this is my website! :) It features different areas of my life, like [physics research](/research), [books](/books), and [graphic design](/graphic-design). Below are some recent things I've done."

@@ -2,8 +2,8 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    min-height: 320px;
+    justify-content: start;
+    min-height: 260px;
     margin: var(--gap) 0 calc(var(--gap) * -1.5) 0;
 }
 
