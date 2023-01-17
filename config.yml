@@ -1,5 +1,5 @@
 baseURL: "https://kianorr.com/"
-title: Kian Orr
+title: kian orr
 theme: PaperMod
 paginate: 5
 math:
@@ -45,7 +45,7 @@ params:
   images: "/sweden.jpg"
   label:
         text: "⌂ kian orr"
-        # icon: "/sweden.jpg"
+        # icon: "/favicon.png"
   hideFooter: true
   ShowPostNavLinks: false
   ShowToc: true

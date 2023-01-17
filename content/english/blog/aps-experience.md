@@ -28,6 +28,3 @@ For work, I actually made a slide to summarize Tunde's presentation.
 
 I also presented a poster for my work at UCLA, which you can find [here](/poster.pdf).
 I did this undergraduate research with Troy Carter and Phil Travis :)
-
-![me and troy](/troy_pic.jpg)
-_(picture credit goes to phil)_
