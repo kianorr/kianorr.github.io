@@ -14,7 +14,7 @@ disableLanguages:
 languages:
   en:
     cover:
-        image: "/sweden.jpg"
+        image: "../../sweden.jpg"
         relative: true
     contentDir: content/english
     languageName: English
@@ -22,18 +22,18 @@ languages:
     menu:
         main:
             - name: posts
-              url: "./blog/"
+              url: "./posts/"
               weight: 8
             - name: CV
               url: "./cv"
               weight: 9
-            - name: research
+            - name: ⧲ research
               url: "./research"
               weight: 1
-            - name: graphic design
+            - name: ❐ graphic design
               url: "./graphic-design"
               weight: 2
-            - name: books
+            - name: ✐ books
               url: "./books"
               weight: 3
   se:

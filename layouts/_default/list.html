@@ -106,7 +106,7 @@
 	{{if ne .Title "⧲ research"}}
 	{{if ne .Title "❐ graphic design"}}
 	{{if ne .Title "Kian Orr | Curriculum Vitae"}}
-	{{if ne .Title "blog"}}
+	{{if ne .Title "posts"}}
 	    <li>
 	        <h3>
 	            <br>
@@ -133,9 +133,9 @@
 
 <ul style="list-style-type:none;">
 {{ range .Pages}}
-	{{ if eq .Title "blog"}}
+	{{ if eq .Title "posts"}}
   <h1> recent posts </h1>
-		{{ range (where .Site.RegularPages "Section" "blog") }}
+		{{ range (where .Site.RegularPages "Section" "posts") }}
 			    <li>
 			        <h4>
 			            <br>
