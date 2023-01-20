@@ -3,11 +3,23 @@ title: "RK4 in different languages"
 draft: true
 ---
 
-||Julia | C ++ | Python | 
-|----|------|------|--------|
-|**speeds**|1.2|3.4|5.6|
+I wanted look more into Julia because it sounded like python but faster and
+better. So, I compared Julia to Python, and also threw C++ in there 
+(do I regret that? Maybe). Below is a summary of the speed tests.
+
+| Julia | C ++ | Python | 
+| :------: | :------: | :--------: |
+| 22.555 ± 34.788 μs | 14.162 μs | 2420 ± 197 μs |
+
+Julia is actually quite close to C++, which isn't too surprising, but it's nice to see.
+Now everyone just needs to actually use Julia so there's support behind it :p
 
 ## `Julia`
+I tried learning how to make my code fast as best I could, but I know there's
+still a lot of room for improvement. I'm still trying to figure out the best
+way to access the variables in structs. I've just been making them input parameters
+in functions.
+
 ```
 using Plots, LaTeXStrings, BenchmarkTools
 theme(:dark)
@@ -50,7 +62,10 @@ function main()
 
     make_times(input, output)
     rk4(test_func, input, output)
+end
 
+function plot_rk4()
+    output = main()
     plot(output.times, output.solutions, label="RK4")
     plot!(output.times, map(exact_func, output.times), ls=:dash, lw=2, label="exact")
     title!("RK4 in julia")
@@ -58,11 +73,21 @@ function main()
     ylabel!(L"df/dt")
     savefig("rk4_julia.png")
 end
-main()
+
+@benchmark main()
+plot_rk4()
 
 ```
+Julia has this really pretty benchmarking macro that will print this in the
+Julia REPL:
+![julia benchmark](/julia_benchmark.png#center)
+
+and the output for the plot is
 ![julia plot](/rk4_julia.png#center)
+
 ## `C++`
+oh boy
+
 ```
 #include <iostream>
 #include <chrono>
@@ -135,48 +160,80 @@ int main() {
 } 
 
 ```
+I had to use `ROOT` to get plots lol. I like the aesthetic of `ROOT` plots
+though.
+
 ![cpp plot](/rk4_cpp.jpg#center)
+
 ## Python
+ahh python. This is one of the first times I'm using `@staticmethod` so I think
+that helped with the speed a bit.
 ```
 import numpy as np
 import matplotlib.pyplot as plt
 
 class Solve():
-    def __init__(self, num_steps: int, step_size: float, constant: float):
-        self.constant = constant
-        self.num_steps = num_steps
+    def __init__(self, initial_solution: float, initial_time: float,
+                 num_steps: int, step_size: float):
+
+        self.initial_time = initial_time
+        self.initial_solution = initial_solution
+
+        self.numberof_steps = num_steps
         self.step_size = step_size
 
-    def create_times(self, initial_time):
-        T = np.array([initial_time + n * self.step_size for n in range(self.num_steps + 1)])
-        return T
+    def create_times(self):
+        times = np.array([self.initial_time + n * self.step_size for n in range(self.numberof_steps + 1)])
+        return times
 
-    def runge_kutta(self, f, times: np.array, s_0=1):
+    def find_solutions_via_rk4(self, f, times: np.array):
 
-        S = np.zeros(self.num_steps + 1)
+        solutions = np.zeros(self.numberof_steps + 1)
             
-        S[0] = s_0
+        solutions[0] = self.initial_solution
 
-        for n in range(self.num_steps):
-            k1 = self.step_size * f(times[n], S[n])
-            k2 = self.step_size * f(times[n] + self.step_size / 2, S[n] + k1 / 2)
-            k3 = self.step_size * f(times[n] + self.step_size / 2, S[n] + k2 / 2)
-            k4 = self.step_size * f(times[n] + self.step_size, S[n] + k3)
-            S[n + 1] = S[n] + (k1 + 2 * k2 + 2 * k3 + k4) / 6
+        for n in range(self.numberof_steps):
+            k1 = self.step_size * f(times[n], solutions[n])
+            k2 = self.step_size * f(times[n] + self.step_size / 2, solutions[n] + k1 / 2)
+            k3 = self.step_size * f(times[n] + self.step_size / 2, solutions[n] + k2 / 2)
+            k4 = self.step_size * f(times[n] + self.step_size, solutions[n] + k3)
+            solutions[n + 1] = solutions[n] + (k1 + 2 * k2 + 2 * k3 + k4) / 6
                 
-        return S
+        return solutions
 
-    def test_func(self, t, x):
-        y = - self.constant * x
+    @staticmethod
+    def test_func(t, x):
+        y = - 10 * x
         return y
 
-    def exact_solution(self, t):
-        y = - np.exp(- self.constant * t)
+    @staticmethod
+    def exact_solution(t):
+        y = - np.exp(- 10 * t)
         return y
+```
 
-s = Solve(1000, 0.01, 10)
-times = s.create_times(0)
-sols = s.runge_kutta(s.test_func, times)
+and then for speed tests, I used `%%timeit` in jupyter notebook:
+```
+from rk4 import Solve
+import matplotlib.pyplot as plt
+plt.style.use("ggplot")
+```
+```
+%%timeit
+s = Solve(1.0, 0.0, 1000, 0.001)
+times = s.create_times()
+sols = s.find_solutions_via_rk4(s.test_func, times)
+```
+Output:
+`2.42 ms ± 197 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)`
+```
+fig, ax = plt.subplots(figsize=(8, 6))
 plt.plot(times, sols)
+plt.ylabel("$df / dt$", fontsize=15)
+plt.xlabel("time", fontsize=15)
+plt.title("RK4 in Python", fontsize=17)
+plt.tight_layout()
+plt.savefig("rk4_python.png")
 plt.show()
 ```
+![rk4 in python](/rk4_python.png#center)
