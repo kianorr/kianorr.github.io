@@ -1,6 +1,8 @@
 ---
 title: "RK4 in different languages"
 draft: false
+date: 2023-01-20
+tags: ["python", "julia", "c++"]
 ---
 
 I wanted look more into Julia because it sounded like python but faster and
