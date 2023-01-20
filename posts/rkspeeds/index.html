@@ -1,0 +1,197 @@
+<!doctype html><html lang=en dir=auto><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>RK4 in different languages | kian orr</title><meta name=keywords content><meta name=description content="I wanted look more into Julia because it sounded like python but faster and better. So, I compared Julia to Python, and also threw C++ in there (do I regret that? Maybe). Below is a summary of the speed tests.
+Julia C ++ Python 22.555 ± 34.788 μs 14.162 μs 2420 ± 197 μs Julia is actually quite close to C++, which isn&rsquo;t too surprising, but it&rsquo;s nice to see. Now everyone just needs to actually use Julia so there&rsquo;s support behind it :p"><meta name=author content><link rel=canonical href=https://kianorr.com/posts/rkspeeds/><script>document.addEventListener("DOMContentLoaded",function(){renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1}]})})</script><link crossorigin=anonymous href=/assets/css/stylesheet.1f90c8c8e7a0422b7b6460367f0c3cfafc1695a79e594d14c909ae27b13c2999.css integrity="sha256-H5DIyOegQit7ZGA2fww8+vwWlaeeWU0UyQmuJ7E8KZk=" rel="preload stylesheet" as=style><script defer crossorigin=anonymous src=/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG+9vmJ0cTS+ovo0FeA=" onload=hljs.initHighlightingOnLoad()></script>
+<link rel=icon href=https://kianorr.com/jupiter.png><link rel=icon type=image/png sizes=16x16 href=https://kianorr.com/favicon-16x16.png><link rel=icon type=image/png sizes=32x32 href=https://kianorr.com/favicon-32x32.png><link rel=apple-touch-icon href=https://kianorr.com/apple-touch-icon.png><link rel=mask-icon href=https://kianorr.com/safari-pinned-tab.svg><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--hljs-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style></noscript><meta property="og:title" content="RK4 in different languages"><meta property="og:description" content="I wanted look more into Julia because it sounded like python but faster and better. So, I compared Julia to Python, and also threw C++ in there (do I regret that? Maybe). Below is a summary of the speed tests.
+Julia C ++ Python 22.555 ± 34.788 μs 14.162 μs 2420 ± 197 μs Julia is actually quite close to C++, which isn&rsquo;t too surprising, but it&rsquo;s nice to see. Now everyone just needs to actually use Julia so there&rsquo;s support behind it :p"><meta property="og:type" content="article"><meta property="og:url" content="https://kianorr.com/posts/rkspeeds/"><meta property="og:image" content="https://kianorr.com/47"><meta property="article:section" content="posts"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://kianorr.com/47"><meta name=twitter:title content="RK4 in different languages"><meta name=twitter:description content="I wanted look more into Julia because it sounded like python but faster and better. So, I compared Julia to Python, and also threw C++ in there (do I regret that? Maybe). Below is a summary of the speed tests.
+Julia C ++ Python 22.555 ± 34.788 μs 14.162 μs 2420 ± 197 μs Julia is actually quite close to C++, which isn&rsquo;t too surprising, but it&rsquo;s nice to see. Now everyone just needs to actually use Julia so there&rsquo;s support behind it :p"><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"posts","item":"https://kianorr.com/posts/"},{"@type":"ListItem","position":2,"name":"RK4 in different languages","item":"https://kianorr.com/posts/rkspeeds/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"RK4 in different languages","name":"RK4 in different languages","description":"I wanted look more into Julia because it sounded like python but faster and better. So, I compared Julia to Python, and also threw C++ in there (do I regret that? Maybe). Below is a summary of the speed tests.\nJulia C ++ Python 22.555 ± 34.788 μs 14.162 μs 2420 ± 197 μs Julia is actually quite close to C++, which isn\u0026rsquo;t too surprising, but it\u0026rsquo;s nice to see. Now everyone just needs to actually use Julia so there\u0026rsquo;s support behind it :p","keywords":[],"articleBody":"I wanted look more into Julia because it sounded like python but faster and better. So, I compared Julia to Python, and also threw C++ in there (do I regret that? Maybe). Below is a summary of the speed tests.\nJulia C ++ Python 22.555 ± 34.788 μs 14.162 μs 2420 ± 197 μs Julia is actually quite close to C++, which isn’t too surprising, but it’s nice to see. Now everyone just needs to actually use Julia so there’s support behind it :p\nJulia I tried learning how to make my code fast as best I could, but I know there’s still a lot of room for improvement. I’m still trying to figure out the best way to access the variables in structs. I’ve just been making them input parameters in functions.\nusing Plots, LaTeXStrings, BenchmarkTools theme(:dark) struct InitialConditions initial_solution::Float64 initial_time::Float64 numberof_steps::Int step_size::Float64 end mutable struct Output{T} times::Vector{T} solutions::Vector{T} end function make_times(ic::InitialConditions, out::Output) out.times::Vector{Float64} = map(n -\u003e ic.initial_time + n * ic.step_size, range(1, length=ic.numberof_steps + 1)) end function rk4(f::Function, ic::InitialConditions, out::Output) out.solutions[1] = ic.initial_solution for n in range(1, length=ic.numberof_steps) k1::Float64 = ic.step_size .* f(out.times[n], out.solutions[n]) k2::Float64 = ic.step_size .* f(out.times[n] .+ ic.step_size / 2, out.solutions[n] .+ k1 ./ 2) k3::Float64 = ic.step_size .* f(out.times[n] .+ ic.step_size / 2, out.solutions[n] .+ k2 ./ 2) k4::Float64 = ic.step_size .* f(out.times[n] .+ ic.step_size, out.solutions[n] .+ k3) out.solutions[n + 1] = out.solutions[n] .+ (k1 .+ 2 * k2 .+ 2 .* k3 .+ k4) ./ 6 end end test_func(t, x) = - 10 * x exact_func(t) = exp(- 10 * t) function main() input::InitialConditions = InitialConditions(1.0, 0.0, 1000, 0.001) output::Output = Output(Vector{Float64}(undef, input.numberof_steps + 1), Vector{Float64}(undef, input.numberof_steps + 1)) make_times(input, output) rk4(test_func, input, output) end function plot_rk4() output = main() plot(output.times, output.solutions, label=\"RK4\") plot!(output.times, map(exact_func, output.times), ls=:dash, lw=2, label=\"exact\") title!(\"RK4 in julia\") xlabel!(\"time\") ylabel!(L\"df/dt\") savefig(\"rk4_julia.png\") end @benchmark main() plot_rk4() Julia has this really pretty benchmarking macro that will print this in the Julia REPL: and the output for the plot is C++ oh boy\n#include #include #include #include using namespace std; class RungeKutta { public: void rk4Solver(float (*f)(float, float), float s); int numSteps; float stepSize; RungeKutta(int n, float h) { numSteps = n; stepSize = h; } private: vector createTimes(float t); }; vector RungeKutta::createTimes(float initialTime) { vector times(this-\u003enumSteps + 1); for (int i; i \u003c= this-\u003enumSteps + 1; i ++) { times[i] = i; } return times; } void RungeKutta::rk4Solver(float (*func)(float, float), float initialSolution) { vector times(this-\u003enumSteps + 1); times = this-\u003ecreateTimes(0.0); float solutions[this-\u003enumSteps + 1]; float k1; float k2; float k3; float k4; solutions[0] = initialSolution; for (int n; n \u003c= this-\u003enumSteps; n ++) { k1 = this-\u003estepSize * func(times[n], solutions[n]); k2 = this-\u003estepSize * func(times[n] + this-\u003estepSize / 2, solutions[n] + k1 / 2); k3 = this-\u003estepSize * func(times[n] + this-\u003estepSize / 2, solutions[n] + k2 / 2); k4 = this-\u003estepSize * func(times[n] + this-\u003estepSize, solutions[n] + k3); solutions[n + 1] = solutions[n] + (k1 + 2 * k2 + 2 * k3 + k4) / 6; } } float exampleFunction(float t, float x) { float y = - 10 * x; return y; } float exactSolution(float t) { float y = - exp(- 10 * t); return y; } int main() { RungeKutta rkObj = RungeKutta(100, 0.1); auto t1 = chrono::high_resolution_clock::now(); rkObj.rk4Solver(\u0026exampleFunction, 1.0); auto t2 = chrono::high_resolution_clock::now(); cout \u003c\u003c chrono::duration_cast(t2-t1).count() * pow(10, -9); return 0; } I had to use ROOT to get plots lol. I like the aesthetic of ROOT plots though.\nPython ahh python. This is one of the first times I’m using @staticmethod so I think that helped with the speed a bit.\nimport numpy as np import matplotlib.pyplot as plt class Solve(): def __init__(self, initial_solution: float, initial_time: float, num_steps: int, step_size: float): self.initial_time = initial_time self.initial_solution = initial_solution self.numberof_steps = num_steps self.step_size = step_size def create_times(self): times = np.array([self.initial_time + n * self.step_size for n in range(self.numberof_steps + 1)]) return times def find_solutions_via_rk4(self, f, times: np.array): solutions = np.zeros(self.numberof_steps + 1) solutions[0] = self.initial_solution for n in range(self.numberof_steps): k1 = self.step_size * f(times[n], solutions[n]) k2 = self.step_size * f(times[n] + self.step_size / 2, solutions[n] + k1 / 2) k3 = self.step_size * f(times[n] + self.step_size / 2, solutions[n] + k2 / 2) k4 = self.step_size * f(times[n] + self.step_size, solutions[n] + k3) solutions[n + 1] = solutions[n] + (k1 + 2 * k2 + 2 * k3 + k4) / 6 return solutions @staticmethod def test_func(t, x): y = - 10 * x return y @staticmethod def exact_solution(t): y = - np.exp(- 10 * t) return y and then for speed tests, I used %%timeit in jupyter notebook:\nfrom rk4 import Solve import matplotlib.pyplot as plt plt.style.use(\"ggplot\") %%timeit s = Solve(1.0, 0.0, 1000, 0.001) times = s.create_times() sols = s.find_solutions_via_rk4(s.test_func, times) Output: 2.42 ms ± 197 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)\nfig, ax = plt.subplots(figsize=(8, 6)) plt.plot(times, sols) plt.ylabel(\"$df / dt$\", fontsize=15) plt.xlabel(\"time\", fontsize=15) plt.title(\"RK4 in Python\", fontsize=17) plt.tight_layout() plt.savefig(\"rk4_python.png\") plt.show() ","wordCount":"827","inLanguage":"en","datePublished":"0001-01-01T00:00:00Z","dateModified":"0001-01-01T00:00:00Z","mainEntityOfPage":{"@type":"WebPage","@id":"https://kianorr.com/posts/rkspeeds/"},"publisher":{"@type":"Organization","name":"kian orr","logo":{"@type":"ImageObject","url":"https://kianorr.com/jupiter.png"}}}</script></head><body id=top><script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add("dark"):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove("dark"):window.matchMedia("(prefers-color-scheme: dark)").matches&&document.body.classList.add("dark")</script><header class=header><nav class=nav><div class=logo><a href=https://kianorr.com/ accesskey=h title="⌂ kian orr (Alt + H)">⌂ kian orr</a><div class=logo-switches><button id=theme-toggle accesskey=t title="(Alt + T)"><svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button></div></div><ul id=menu><li><a href=https://kianorr.com/research title="⧲ research"><span>⧲ research</span></a></li><li><a href=https://kianorr.com/graphic-design title="❐ graphic design"><span>❐ graphic design</span></a></li><li><a href=https://kianorr.com/books title="✐ books"><span>✐ books</span></a></li><li><a href=https://kianorr.com/posts/ title=posts><span>posts</span></a></li><li><a href=https://kianorr.com/cv title=CV><span>CV</span></a></li></ul></nav></header><main class=main><article class=post-single><header class=post-header><div class=breadcrumbs><a href=https://kianorr.com/>home</a>&nbsp;»&nbsp;<a href=https://kianorr.com/posts/>posts</a></div><h1 class=post-title>RK4 in different languages</h1><div class=post-meta></div></header><div class=toc><details><summary accesskey=c title="(Alt + C)"><span class=details>table of contents</span></summary><div class=inner><ul><li><a href=#julia aria-label=Julia><code>Julia</code></a></li><li><a href=#c aria-label=C++><code>C++</code></a></li><li><a href=#python aria-label=Python>Python</a></li></ul></div></details></div><div class=post-content><p>I wanted look more into Julia because it sounded like python but faster and
+better. So, I compared Julia to Python, and also threw C++ in there
+(do I regret that? Maybe). Below is a summary of the speed tests.</p><table><thead><tr><th style=text-align:center>Julia</th><th style=text-align:center>C ++</th><th style=text-align:center>Python</th></tr></thead><tbody><tr><td style=text-align:center>22.555 ± 34.788 μs</td><td style=text-align:center>14.162 μs</td><td style=text-align:center>2420 ± 197 μs</td></tr></tbody></table><p>Julia is actually quite close to C++, which isn&rsquo;t too surprising, but it&rsquo;s nice to see.
+Now everyone just needs to actually use Julia so there&rsquo;s support behind it :p</p><h2 id=julia><code>Julia</code><a hidden class=anchor aria-hidden=true href=#julia>#</a></h2><p>I tried learning how to make my code fast as best I could, but I know there&rsquo;s
+still a lot of room for improvement. I&rsquo;m still trying to figure out the best
+way to access the variables in structs. I&rsquo;ve just been making them input parameters
+in functions.</p><pre tabindex=0><code>using Plots, LaTeXStrings, BenchmarkTools
+theme(:dark)
+
+struct InitialConditions
+    initial_solution::Float64
+    initial_time::Float64
+    numberof_steps::Int
+    step_size::Float64
+end
+
+mutable struct Output{T}
+    times::Vector{T}
+    solutions::Vector{T}
+end
+
+function make_times(ic::InitialConditions, out::Output)
+    out.times::Vector{Float64} = map(n -&gt; ic.initial_time + n * ic.step_size,
+    				     range(1, length=ic.numberof_steps + 1))
+end
+
+function rk4(f::Function, ic::InitialConditions, out::Output)
+    out.solutions[1] = ic.initial_solution
+
+    for n in range(1, length=ic.numberof_steps)
+        k1::Float64 = ic.step_size .* f(out.times[n], out.solutions[n])
+        k2::Float64 = ic.step_size .* f(out.times[n] .+ ic.step_size / 2, out.solutions[n] .+ k1 ./ 2)
+        k3::Float64 = ic.step_size .* f(out.times[n] .+ ic.step_size / 2, out.solutions[n] .+ k2 ./ 2)
+        k4::Float64 = ic.step_size .* f(out.times[n] .+ ic.step_size, out.solutions[n] .+ k3)
+        out.solutions[n + 1] = out.solutions[n] .+ (k1 .+ 2 * k2 .+ 2 .* k3 .+ k4) ./ 6
+    end
+end
+
+test_func(t, x) = - 10 * x
+exact_func(t) = exp(- 10 * t)
+function main()
+    input::InitialConditions = InitialConditions(1.0, 0.0, 1000, 0.001)
+    output::Output = Output(Vector{Float64}(undef, input.numberof_steps + 1), 
+                            Vector{Float64}(undef, input.numberof_steps + 1))
+
+    make_times(input, output)
+    rk4(test_func, input, output)
+end
+
+function plot_rk4()
+    output = main()
+    plot(output.times, output.solutions, label=&#34;RK4&#34;)
+    plot!(output.times, map(exact_func, output.times), ls=:dash, lw=2, label=&#34;exact&#34;)
+    title!(&#34;RK4 in julia&#34;)
+    xlabel!(&#34;time&#34;)
+    ylabel!(L&#34;df/dt&#34;)
+    savefig(&#34;rk4_julia.png&#34;)
+end
+
+@benchmark main()
+plot_rk4()
+</code></pre><p>Julia has this really pretty benchmarking macro that will print this in the
+Julia REPL:
+<img loading=lazy src=/julia_benchmark.png#center alt="julia benchmark"></p><p>and the output for the plot is
+<img loading=lazy src=/rk4_julia.png#center alt="julia plot"></p><h2 id=c><code>C++</code><a hidden class=anchor aria-hidden=true href=#c>#</a></h2><p>oh boy</p><pre tabindex=0><code>#include &lt;iostream&gt;
+#include &lt;chrono&gt;
+#include &lt;math.h&gt;
+#include &lt;vector&gt;
+using namespace std;
+
+class RungeKutta {
+  public:
+    void rk4Solver(float (*f)(float, float), float s);
+
+    int numSteps;
+    float stepSize;
+
+    RungeKutta(int n, float h) {
+      numSteps = n;
+      stepSize = h;
+    }
+  
+  private:
+    vector&lt;float&gt; createTimes(float t);
+};
+
+vector&lt;float&gt; RungeKutta::createTimes(float initialTime) {
+  vector&lt;float&gt; times(this-&gt;numSteps + 1);
+  for (int i; i &lt;= this-&gt;numSteps + 1; i ++) {
+    times[i] = i;
+  }
+  return times;
+}
+
+void RungeKutta::rk4Solver(float (*func)(float, float), float initialSolution) {
+  vector&lt;float&gt; times(this-&gt;numSteps + 1);
+  times = this-&gt;createTimes(0.0);
+  float solutions[this-&gt;numSteps + 1];
+
+  float k1;
+  float k2;
+  float k3;
+  float k4;
+
+  solutions[0] = initialSolution;
+  for (int n; n &lt;= this-&gt;numSteps; n ++) {
+    k1 = this-&gt;stepSize * func(times[n], solutions[n]);
+    k2 = this-&gt;stepSize * func(times[n] + this-&gt;stepSize / 2, solutions[n] + k1 / 2);
+    k3 = this-&gt;stepSize * func(times[n] + this-&gt;stepSize / 2, solutions[n] + k2 / 2);
+    k4 = this-&gt;stepSize * func(times[n] + this-&gt;stepSize, solutions[n] + k3);
+    solutions[n + 1] = solutions[n] + (k1 + 2 * k2 + 2 * k3 + k4) / 6;
+  }
+}
+
+float exampleFunction(float t, float x) {
+  float y = - 10 * x;
+  return y;
+}
+
+float exactSolution(float t) {
+  float y = - exp(- 10 * t);
+  return y;
+}
+
+int main() {
+  RungeKutta rkObj = RungeKutta(100, 0.1);
+
+  auto t1 = chrono::high_resolution_clock::now();
+  rkObj.rk4Solver(&amp;exampleFunction, 1.0);
+  auto t2 = chrono::high_resolution_clock::now();
+  cout &lt;&lt; chrono::duration_cast&lt;chrono::nanoseconds&gt;(t2-t1).count() * pow(10, -9);
+  return 0;
+} 
+</code></pre><p>I had to use <code>ROOT</code> to get plots lol. I like the aesthetic of <code>ROOT</code> plots
+though.</p><p><img loading=lazy src=/rk4_cpp.jpg#center alt="cpp plot"></p><h2 id=python>Python<a hidden class=anchor aria-hidden=true href=#python>#</a></h2><p>ahh python. This is one of the first times I&rsquo;m using <code>@staticmethod</code> so I think
+that helped with the speed a bit.</p><pre tabindex=0><code>import numpy as np
+import matplotlib.pyplot as plt
+
+class Solve():
+    def __init__(self, initial_solution: float, initial_time: float,
+                 num_steps: int, step_size: float):
+
+        self.initial_time = initial_time
+        self.initial_solution = initial_solution
+
+        self.numberof_steps = num_steps
+        self.step_size = step_size
+
+    def create_times(self):
+        times = np.array([self.initial_time + n * self.step_size for n in range(self.numberof_steps + 1)])
+        return times
+
+    def find_solutions_via_rk4(self, f, times: np.array):
+
+        solutions = np.zeros(self.numberof_steps + 1)
+            
+        solutions[0] = self.initial_solution
+
+        for n in range(self.numberof_steps):
+            k1 = self.step_size * f(times[n], solutions[n])
+            k2 = self.step_size * f(times[n] + self.step_size / 2, solutions[n] + k1 / 2)
+            k3 = self.step_size * f(times[n] + self.step_size / 2, solutions[n] + k2 / 2)
+            k4 = self.step_size * f(times[n] + self.step_size, solutions[n] + k3)
+            solutions[n + 1] = solutions[n] + (k1 + 2 * k2 + 2 * k3 + k4) / 6
+                
+        return solutions
+
+    @staticmethod
+    def test_func(t, x):
+        y = - 10 * x
+        return y
+
+    @staticmethod
+    def exact_solution(t):
+        y = - np.exp(- 10 * t)
+        return y
+</code></pre><p>and then for speed tests, I used <code>%%timeit</code> in jupyter notebook:</p><pre tabindex=0><code>from rk4 import Solve
+import matplotlib.pyplot as plt
+plt.style.use(&#34;ggplot&#34;)
+</code></pre><pre tabindex=0><code>%%timeit
+s = Solve(1.0, 0.0, 1000, 0.001)
+times = s.create_times()
+sols = s.find_solutions_via_rk4(s.test_func, times)
+</code></pre><p>Output:
+<code>2.42 ms ± 197 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)</code></p><pre tabindex=0><code>fig, ax = plt.subplots(figsize=(8, 6))
+plt.plot(times, sols)
+plt.ylabel(&#34;$df / dt$&#34;, fontsize=15)
+plt.xlabel(&#34;time&#34;, fontsize=15)
+plt.title(&#34;RK4 in Python&#34;, fontsize=17)
+plt.tight_layout()
+plt.savefig(&#34;rk4_python.png&#34;)
+plt.show()
+</code></pre><p><img loading=lazy src=/rk4_python.png#center alt="rk4 in python"></p></div><footer class=post-footer><ul class=post-tags></ul></footer></article></main><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg></a><script>let menu=document.getElementById("menu");menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove("dark"),localStorage.setItem("pref-theme","light")):(document.body.classList.add("dark"),localStorage.setItem("pref-theme","dark"))})</script></body></html>
