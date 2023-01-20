@@ -1,6 +1,6 @@
 ---
 title: "RK4 in different languages"
-draft: true
+draft: false
 ---
 
 I wanted look more into Julia because it sounded like python but faster and
