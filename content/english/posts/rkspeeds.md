@@ -121,9 +121,9 @@ vector<float> RungeKutta::createTimes(float initialTime) {
   return times;
 }
 
-void RungeKutta::rk4Solver(float (*func)(float, float), float initialSolution) {
+void RungeKutta::rk4Solver(float (*func)(float, float), float initialSolution, float initialTime) {
   vector<float> times(this->numSteps + 1);
-  times = this->createTimes(0.0);
+  times = this->createTimes(initialTime);
   float solutions[this->numSteps + 1];
 
   float k1;
@@ -152,10 +152,10 @@ float exactSolution(float t) {
 }
 
 int main() {
-  RungeKutta rkObj = RungeKutta(100, 0.1);
+  RungeKutta rkObj = RungeKutta(1000, 0.001);
 
   auto t1 = chrono::high_resolution_clock::now();
-  rkObj.rk4Solver(&exampleFunction, 1.0);
+  rkObj.rk4Solver(&exampleFunction, 1.0, 0.0);
   auto t2 = chrono::high_resolution_clock::now();
   cout << chrono::duration_cast<chrono::nanoseconds>(t2-t1).count() * pow(10, -9);
   return 0;

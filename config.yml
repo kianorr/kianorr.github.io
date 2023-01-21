@@ -44,8 +44,8 @@ languages:
 params:
   images: "/sweden.jpg"
   label:
-        text: "⌂ kian orr"
-        # icon: "/favicon.png"
+        text: "kian orr"
+        icon: "/earth.png"
   hideFooter: true
   ShowPostNavLinks: false
   ShowToc: true
