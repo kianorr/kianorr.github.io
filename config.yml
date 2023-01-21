@@ -27,7 +27,7 @@ languages:
             - name: CV
               url: "./cv"
               weight: 9
-            - name: ⧲ research
+            - name: ∫ research
               url: "./research"
               weight: 1
             - name: ❐ graphic design

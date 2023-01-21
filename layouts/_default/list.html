@@ -103,14 +103,14 @@
 	{{- $isHidden := (site.Params.cover.hidden | default site.Params.cover.hiddenInList) }}
 	{{- partial "cover.html" (dict "cxt" . "IsHome" true "isHidden" $isHidden) }}
 	{{if ne .Title "✐ book reviews"}}
-	{{if ne .Title "⧲ research"}}
+	{{if ne .Title "∫ research"}}
 	{{if ne .Title "❐ graphic design"}}
 	{{if ne .Title "Kian Orr | Curriculum Vitae"}}
 	{{if ne .Title "posts"}}
 	    <li>
 	        <h3>
 	            <br>
-	                <a href="{{.Permalink}}">{{.Title}}</a>
+	                <u><a href="{{.Permalink}}">{{.Title}}</a></u>
 	                {{- if .Draft }}<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>{{- end }}
 	            </br>
 	        </h3>
@@ -139,7 +139,7 @@
 			    <li>
 			        <h4>
 			            <br>
-			                <a href="{{.Permalink}}">{{.Title}}</a>
+			                <u><a href="{{.Permalink}}">{{.Title}}</a></u>
 			                {{- if .Draft }}<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>{{- end }}
 			            </br>
 			        </h4>

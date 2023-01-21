@@ -1,5 +1,5 @@
 ---
-title: "⧲ research"
+title: "∫ research"
 draft: false
 weight: 1
 ---
