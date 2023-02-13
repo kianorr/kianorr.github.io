@@ -4,8 +4,7 @@ theme: PaperMod
 paginate: 5
 math:
   enable: true
-enableInlineShortcodes: true
-
+# enableInlineShortcodes: true
 
 #defaultContentLanguage: en
 #defaultContentLanguageInSubdir: false

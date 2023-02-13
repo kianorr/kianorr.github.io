@@ -1,17 +1,23 @@
 ---
-title: "RK4 in different languages"
+title: "RK4 speeds in python, julia, and c++"
 draft: false
 date: 2023-01-20
+lastmod: 2023-02-12
 tags: ["python", "julia", "c++"]
----
-
-I wanted look more into Julia because it sounded like python but faster and
+summary: "I wanted look more into Julia because it sounded like python but faster and
 better. So, I compared Julia to Python, and also threw C++ in there 
-(do I regret that? Maybe). Below is a summary of the speed tests.
+(do I regret that? Maybe)"
+tocOpen: true
+---
 
 | Julia | C ++ | Python | 
 | :------: | :------: | :--------: |
 | 22.555 ± 34.788 μs | 14.162 μs | 2420 ± 197 μs |
+
+## intro
+I wanted look more into Julia because it sounded like python but faster and
+better. So, I compared Julia to Python, and also threw C++ in there 
+(do I regret that? Maybe). Below is a summary of the speed tests.
 
 Julia is actually quite close to C++, which isn't too surprising, but it's nice to see.
 Now everyone just needs to actually use Julia so there's support behind it :p
@@ -167,7 +173,7 @@ though.
 
 ![cpp plot](/rk4_cpp.jpg#center)
 
-## Python
+## `python`
 ahh python. This is one of the first times I'm using `@staticmethod` so I think
 that helped with the speed a bit.
 ```
