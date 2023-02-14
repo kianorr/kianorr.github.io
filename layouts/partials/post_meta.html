@@ -4,18 +4,15 @@
 {{- if not .Date.IsZero}}
     {{- $pubdate := .Date.Format "January 2, 2006" }}
 
-    <time datetime="{{ .Date }}" title="{{ .Date }}">
-        {{ $pubdate }}
-    </time>
+    {{- $scratch.Add "meta" (slice (printf "<span title='%s'>%s</span>" (.Date) (.Date | time.Format (default "January 2, 2006" site.Params.DateFormat)))) }}
+
 
     <!-- Last Updated Date -->
     {{- if .Lastmod }}
         {{- $lastmod := .Lastmod.Format "January 2, 2006" }}
         {{- if ne $lastmod $pubdate }}
-                &nbsp (modified &nbsp
-                <time datetime=" {{ .Lastmod }}" title=" {{ .Lastmod }}">
-                    {{ $lastmod }}
-                </time>)
+            {{- $scratch.Add "meta" (slice (printf "modified&nbsp;<span title='%s'>%s</span>" (.Lastmod) (.Lastmod | time.Format (default "January 2, 2006" site.Params.DateFormat)))) }}
+
 
         {{- end }}
     {{- end }}
@@ -34,5 +31,5 @@
 {{- end }}
 
 {{- with ($scratch.Get "meta") }}
-{{- delimit . "&nbsp;·&nbsp;" -}}
+{{- delimit . "&nbsp;&nbsp;|&nbsp;&nbsp;" -}}
 {{- end -}}
