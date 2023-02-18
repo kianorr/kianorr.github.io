@@ -1,5 +1,5 @@
 ---
-title: " my experience at APS DPP 2022"
+title: "my experience at APS DPP 2022"
 date: 2022-11-26
 draft: false
 ---

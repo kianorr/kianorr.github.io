@@ -11,9 +11,7 @@
     {{- if .Lastmod }}
         {{- $lastmod := .Lastmod.Format "January 2, 2006" }}
         {{- if ne $lastmod $pubdate }}
-            {{- $scratch.Add "meta" (slice (printf "modified&nbsp;<span title='%s'>%s</span>" (.Lastmod) (.Lastmod | time.Format (default "January 2, 2006" site.Params.DateFormat)))) }}
-
-
+            {{- $scratch.Add "meta" (slice (printf "last&nbsp;updated&nbsp;<span title='%s'>%s</span>" (.Lastmod) (.Lastmod | time.Format (default "January 2, 2006" site.Params.DateFormat)))) }}
         {{- end }}
     {{- end }}
 {{- end }}
@@ -31,5 +29,5 @@
 {{- end }}
 
 {{- with ($scratch.Get "meta") }}
-{{- delimit . "&nbsp;&nbsp;|&nbsp;&nbsp;" -}}
+{{- delimit . "&nbsp;&nbsp;·&nbsp;&nbsp;" -}}
 {{- end -}}

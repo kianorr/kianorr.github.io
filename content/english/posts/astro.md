@@ -1,6 +1,6 @@
 ---
 title: "first attempt at astrophotography"
-date: 2023-02-20
+date: 2023-02-18T15:17:05-08:00
 draft: false
 ---
 
