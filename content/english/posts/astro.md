@@ -5,6 +5,6 @@ draft: false
 ---
 
 Earlier this month, I went to Anza Borrego with my friend Matt. We camped for a night and attempted some astrophotography.
-I took about 700 pictures, each with a 5 second exposure, of the orion nebula with a camera that Matt let me borrow. I used siril for post-processing, where I essentially followed this guide. I had trouble with the photometric color calibration step (kept on getting an error about plate solving) so I did the manual color calibration instead. This is the result:
+I took about 700 pictures, each with a 5 second exposure, of the orion nebula with a camera that Matt let me borrow. I used siril for post-processing, where I essentially followed [this guide](https://www.cloudynights.com/topic/742945-how-good-is-siril/). I had trouble with the photometric color calibration step (kept on getting an error about plate solving) so I did the manual color calibration instead. This is the result:
 
 ![orion](/orion_postprocess.png)
