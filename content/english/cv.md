@@ -6,8 +6,9 @@ title: "Kian Orr | Curriculum Vitae"
 
 (949) 456-3409 | kianorr@g.ucla.edu
 
-**Research interests**: Fusion | Plasma astrophysics | Magnetohydrodynamic and particle in cell simulations | Experimental plasma diagnostics
+**Research interests**: Fusion | Plasma astrophysics | Plasma simulations
 
+**Last updated**: February 24, 2023
 ___
 
 ## Education
@@ -23,11 +24,10 @@ _2018 - 2020_
 ### [TAE Technologies | Jr. Scientist](/research/tae) 
 _June 2022 - present_
 - Spectroscopic measurements of plasma in TAE’s fusion device (C-2W)
-- Fully redeployed a high-resolution spectrometer diagnostic, entailing calibration and data analysis
-- Beginning redeployment of x-ray spectrometer diagnostic
-- Inferences of spectroscopic data, including velocities, temperatures, and confinement times
-- Creation of a post shot processing code for a spectrometer used by TAE scientists
-- Implementing machine learning to predict electron density and temperature in C-2W
+- Theoretical and experimental investigation of particle confinement times
+- Calculation of local main ion temperatures and rotational velocities through charge exchange
+- Fully calibrated and redeployed a high-resolution spectrometer diagnostic after years of inactivity
+- Taking lead for x-ray spectrometer diagnostic for the first measurements of x-rays from C-2W
 
 ### [UCLA Large Plasma Device (LAPD) | Student Researcher for Troy Carter](/research/lapd)
 _August 2021 - October 2022_
@@ -52,7 +52,8 @@ _Sept 2019 - Nov 2019_
 ### IVC | Tutor
 _Oct 2019 - Dec 2021_
 
-- Tutor for math and physics; requires a succint way to communicate ideas
+- Tutor for math and physics; requires succinct and clear communication
+- Passionate about helping and connecting with students struggling over concepts
 
 ## Awards
 ### Best Abstract Award | HTCC
@@ -67,7 +68,7 @@ _October 2022_
 ### UCI Honors Transfer Conference (HTCC)
 _May 2022_
 
-- Invited but cancelled due to COVID-19
+- Selected but cancelled due to COVID-19
 
 ### IVC Symposium | Presentation
 _November 2019_
@@ -76,9 +77,8 @@ _November 2019_
 
 ## Skills
 ### Programming
-- Python, Julia, Matlab, C++, Mathematica
-- Knowledge of numerical methods to solve various systems
-- Familiarity with EPOCH PIC code
+- Python, Julia, Matlab, C++, Mathematica, ROOT
+- Knowledge of numerical methods
 
 ### Languages
 - English: fluent

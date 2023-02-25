@@ -1,7 +1,6 @@
 ---
 title: "particle in cell from scratch"
-math:
-    enable: true
+math: true
 draft: false
 weight: 1
 TocOpen: false
