@@ -3,6 +3,7 @@ title: "RK4 speeds in python, julia, and c++"
 draft: false
 date: 2023-01-20
 lastmod: 2023-02-12
+math: true
 tags: ["python", "julia", "c++"]
 summary: "I wanted look more into Julia because it sounded like python but faster and
 better. So, I compared Julia to Python, and also threw C++ in there 
@@ -15,9 +16,15 @@ tocOpen: true
 | 22.555 ± 34.788 μs | 14.162 μs | 2420 ± 197 μs |
 
 ## intro
+Fourth order Runge Kutta (RK4) is a computational method to solve DEs
 I wanted look more into Julia because it sounded like python but faster and
-better. So, I compared Julia to Python, and also threw C++ in there 
-(do I regret that? Maybe). Below is a summary of the speed tests.
+better. So, I tested speeds between Julia and Python, and also threw C++ in there 
+(do I regret that? Maybe), by using fourth order Runge Kutta (RK4). RK4 is a computational method
+to solve differential equations, which in my case was the simple
+
+\begin{align}
+\frac{\text{d}x}{\text{d}t} = - 10x.
+\end{align}
 
 Julia is actually quite close to C++, which isn't too surprising, but it's nice to see.
 Now everyone just needs to actually use Julia so there's support behind it :p
