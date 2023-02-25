@@ -168,9 +168,9 @@ $$
 We can analyze two cases: no drift velocity ($v_0 = 0, E_0 = 0$) and yes drift velocity ($v_0 \neq 0$). For each case, the continuity equation becomes
 
 \begin{align}
-\text{no drift} \quad &\partial_t n_1 + n_0\partial_x v_1 = 0
+\text{no drift} \quad &\partial_t n_1 + n_0\partial_x v_1 = 0 \notag
 \\\\
-\text{ya drift} \quad &\partial_t n_1 + \partial_x n_1v_0 + n_0\partial_x v_1 = 0.
+\text{ya drift} \quad &\partial_t n_1 + \partial_x n_1v_0 + n_0\partial_x v_1 = 0. \notag
 \end{align}
 
 Then, for a plane wave $f_1(x, t)$ of amplitude $f_1$, we obtain
@@ -183,9 +183,9 @@ This process is done for all 3 equations in $(2), (3)$ and $(4)$,
 so we end up with 2 sets of 3 equations, which leads to the results of
 
 \begin{align}
-\left(1 - \frac{\omega_p^2}{\omega^2}\right)E_1=0 \qquad &\text{Dispersion relation} \ (v=0)
+\left(1 - \frac{\omega_p^2}{\omega^2}\right)E_1=0 \qquad &\text{Dispersion relation} \ (v=0) \notag
 \\\\
-\left(1 - \frac{\omega_p^2}{(\omega-kv_0)^2}\right)E_1=0 \qquad &\text{Doppler waves} \ (v\neq0)
+\left(1 - \frac{\omega_p^2}{(\omega-kv_0)^2}\right)E_1=0 \qquad &\text{Doppler waves} \ (v\neq0) \notag
 \end{align}
 
 These relations are useful because they relate $k$ and $\omega$ of a given wave.
@@ -200,19 +200,19 @@ Additionaly, $v_{0_1} = 0$ and $v_{0_2} = v_0 \neq 0$.
 If we apply these conditions to $(2), (3)$ and $(4)$, we find that
 
 \begin{align} 
-    &\partial_t v_i + v_i \partial_x v_i = -\frac{e}{m} E
+    &\partial_t v_i + v_i \partial_x v_i = -\frac{e}{m} E \notag
     \\\\
-    &\partial_t n_i + \partial_x(n_i v_i) = 0
+    &\partial_t n_i + \partial_x(n_i v_i) = 0 \notag
     \\\\
-    &\partial_x E = -\frac{e}{\epsilon_0}(n_1 + n_2 - n_0),
+    &\partial_x E = -\frac{e}{\epsilon_0}(n_1 + n_2 - n_0), \notag
 \end{align}
 
 Following the same process we did for plasma oscillations, we end up with
 
 \begin{gather}
-\left[1 - \frac{\omega_p}{\omega^2} + \frac{\omega_p}{\omega-kv_0}\right]E_1 = 0
+\left[1 - \frac{\omega_p}{\omega^2} + \frac{\omega_p}{\omega-kv_0}\right]E_1 = 0 \notag
 \\\\
-\implies 1 - \frac{\omega_{p_1}^2}{(\omega-kv_{0_1})^2} - \frac{\omega_{p_2}^2}{(\omega-kv_{0_2})^2} = 0
+\implies 1 - \frac{\omega_{p_1}^2}{(\omega-kv_{0_1})^2} - \frac{\omega_{p_2}^2}{(\omega-kv_{0_2})^2} = 0 \notag
 \end{gather}
 
 which means that when $\omega_{p_1}=\omega_{p_2}=\omega_{p_e}$ and 
@@ -234,8 +234,9 @@ maximizing $\hat{\omega}$ with respect to $\alpha$, such that
 
 \begin{gather}
 \frac{\text{d}\hat{\omega}}{\text{d}\alpha} = 0
-\implies \alpha = \frac{\sqrt{3}}{2}\frac{k_{max}v_0}{\omega_{p_e}}\\
-\implies k_{max} = \frac{\sqrt{3}}{2}\frac{\omega_{p_e}}{v_0}.
+\implies \alpha = \frac{\sqrt{3}}{2}\frac{k_{max}v_0}{\omega_{p_e}} \notag
+\\\\
+\implies k_{max} = \frac{\sqrt{3}}{2}\frac{\omega_{p_e}}{v_0}. \notag
 \end{gather}
 
 And the fastest growing mode corresponds to the number of phase space holes.
