@@ -2,7 +2,8 @@
 title: "kian orr's website"
 draft: false
 ---
-![pond in sweden](/sweden.jpg)
+{{< figure align=center src="/sweden.jpg" caption="a pretty pond in sweden" >}}
+
 <!-- ## hello 🪐
 my name is kian johan nils orr and this is my website! :) 
 It features different areas of my life, 
