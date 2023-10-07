@@ -10,11 +10,11 @@ math:
 #defaultContentLanguageInSubdir: false
 disableLanguages:
  - se
+cover:
+  image: "../../sweden.jpg"
+  relative: true
 languages:
   en:
-    cover:
-        image: "../../sweden.jpg"
-        relative: true
     contentDir: content/english
     languageName: English
     weight: 1
