@@ -1,8 +1,9 @@
 ---
 title: "RK4 speeds in python, julia, and c++"
 draft: false
-date: 2023-01-20
-lastmod: 2023-02-12
+date: 2023-01-20T15:17:05-08:00
+# date: 2023-01-20
+# lastmod: 2023-02-12
 math: true
 tags: ["python", "julia", "c++"]
 summary: "I wanted look more into Julia because it sounded like python but faster and
