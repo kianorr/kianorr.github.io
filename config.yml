@@ -41,6 +41,7 @@ languages:
     weight: 2
 
 params:
+  dateFormat: "02 Jan 2006"
   images: "/sweden.jpg"
   label:
         text: "kian orr"
