@@ -8,7 +8,7 @@ I wanted to look into the intersection between graphic design and code.
 I found a program called Processing, where you can code in Java, C++ or Python.
 After trying a few simple things, this animation seemed to be pretty cool:
 
-{{< video src="/out.mp4" type="video/mp4" preload="auto">}}
+# {{< video src="/out.mp4" type="video/mp4" preload="auto">}}
 
 The code for it is below. There are two functions that automatically run, 
 `setup()` (runs once like `__init__`) and `draw()` (continuously runs). So I just
