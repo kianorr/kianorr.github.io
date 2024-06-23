@@ -1,6 +1,6 @@
 baseURL: "https://kianorr.com/"
 title: kian orr
-theme: PaperMod2
+theme: PaperMod
 paginate: 5
 math:
   enable: true
