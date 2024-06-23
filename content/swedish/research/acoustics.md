@@ -2,7 +2,6 @@
 title: "Optimal Concert Hall"
 mathjax: true
 katex: true
-markup: 'mmark'
 math: true
 draft: false
 ---

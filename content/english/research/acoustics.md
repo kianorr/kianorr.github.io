@@ -2,7 +2,6 @@
 title: "concert hall simulation"
 mathjax: true
 katex: true
-markup: 'mmark'
 math: true
 draft: false
 weight: 2
