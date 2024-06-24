@@ -1,20 +1,20 @@
 {{- $scratch := newScratch }}
 
 
-{{- if not .Date.IsZero}}
+<!-- {{- if not .Date.IsZero}}
     {{- $pubdate := .Date.Format "January 2, 2006" }}
 
-    {{- $scratch.Add "meta" (slice (printf "<span title='%s'>%s</span>" (.Date) (.Date | time.Format (default "January 2, 2006" site.Params.DateFormat)))) }}
+    {{- $scratch.Add "meta" (slice (printf "<span title='%s'>%s</span>" (.Date) (.Date | time.Format (default "January 2, 2006" site.Params.DateFormat)))) }} -->
 
 
     <!-- Last Updated Date -->
-    {{- if .Lastmod }}
+    <!-- {{- if .Lastmod }}
         {{- $lastmod := .Lastmod.Format "January 2, 2006" }}
         {{- if ne $lastmod $pubdate }}
             {{- $scratch.Add "meta" (slice (printf "last&nbsp;updated&nbsp;<span title='%s'>%s</span>" (.Lastmod) (.Lastmod | time.Format (default "January 2, 2006" site.Params.DateFormat)))) }}
         {{- end }}
     {{- end }}
-{{- end }}
+{{- end }} -->
 
 {{- if (.Param "ShowReadingTime") -}}
 {{- $scratch.Add "meta" (slice (i18n "read_time" .ReadingTime | default (printf "%d min" .ReadingTime))) }}
