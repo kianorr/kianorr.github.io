@@ -41,7 +41,7 @@ languages:
     weight: 2
 
 params:
-  images: "/sweden.jpg"
+  # images: "/sweden.jpg"
   label:
         text: "kian orr"
         icon: "/earth.png"
