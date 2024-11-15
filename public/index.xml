@@ -1,16 +1,194 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>kian orr's website on kian orr</title><link>https://kianorr.com/</link><description>Recent content in kian orr's website on kian orr</description><generator>Hugo -- 0.118.2</generator><language>en</language><lastBuildDate>Sat, 18 Feb 2023 15:17:05 -0800</lastBuildDate><atom:link href="https://kianorr.com/index.xml" rel="self" type="application/rss+xml"/><item><title>particle in cell from scratch</title><link>https://kianorr.com/research/pic/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kianorr.com/research/pic/</guid><description>&lt;p>This code was made for the final project of a computational physics class at
-UCLA. It was my introduction to computational plasma physics.&lt;/p></description></item><item><title>concert hall simulation</title><link>https://kianorr.com/research/acoustics/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kianorr.com/research/acoustics/</guid><description>This simulation attempts to recreate the distribution of sound in square concert halls. The set-up is seen in the figure below, where the radii are calculate through geometry
-The radii come out to be
-$$\begin{aligned} r_1 &amp;amp;= d_1 \sqrt{\left(\frac{y}{2d_1-x}\right)^2 + 1} \\ r_3 &amp;amp;= d_3 \sqrt{\left(\frac{y}{2d_1+x}\right)^2 + 1} \\ r_2 &amp;amp;= \sqrt{\left(\frac{y(2d_1-x)}{d_1}\right)^2 + (d_1 - x)^2} \\ r_4 &amp;amp;= \sqrt{\left(\frac{y(2d_1+x)}{d_1}\right)^2 + (d_1 + x)^2} \\ r_5 &amp;amp;= \sqrt{x^2 + y^2} \end{aligned}.</description></item><item><title>large plasma device at UCLA</title><link>https://kianorr.com/research/lapd/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kianorr.com/research/lapd/</guid><description>a picture of the large plasma device
-Most of my research done at UCLA is summarized in a poster: Survery Spectroscopy in the Large Plasma Device. I presented this poster at APS DPP 2022.</description></item><item><title>first attempt at astrophotography</title><link>https://kianorr.com/posts/astro/</link><pubDate>Sat, 18 Feb 2023 15:17:05 -0800</pubDate><guid>https://kianorr.com/posts/astro/</guid><description>Earlier this month, I camped in Anza Borrego for a night with my friend Matt to try out some astrophotography. The camping itself went alright &amp;ndash; it was cold, which I expected, but I did not think about how cold the ground was going to be when trying to sleep (didn&amp;rsquo;t bring a mat like a smart person).
-I took about 700 pictures, each with a 5 second exposure, of the orion nebula with a camera that Matt let me borrow.</description></item><item><title>RK4 speeds in python, julia, and c++</title><link>https://kianorr.com/posts/rkspeeds/</link><pubDate>Fri, 20 Jan 2023 15:17:05 -0800</pubDate><guid>https://kianorr.com/posts/rkspeeds/</guid><description>I wanted look more into Julia because it sounded like python but faster and better. So, I compared Julia to Python, and also threw C++ in there (do I regret that? Maybe)</description></item><item><title>code and graphic design</title><link>https://kianorr.com/posts/code-graphics/</link><pubDate>Tue, 20 Dec 2022 15:17:05 -0800</pubDate><guid>https://kianorr.com/posts/code-graphics/</guid><description>I wanted to look into the intersection between graphic design and code. I found a program called Processing, where you can code in Java, C++ or Python. After trying a few simple things, this animation seemed to be pretty cool:
-The code for it is below. There are two functions that automatically run, setup() (runs once like __init__) and draw() (continuously runs). So I just continuously increased the radius at which that ellipse is at, as well as it&amp;rsquo;s angle with a couple sines and cosines to make it dynamic.</description></item><item><title>my experience at APS DPP 2022</title><link>https://kianorr.com/posts/aps-experience/</link><pubDate>Sat, 26 Nov 2022 15:17:05 -0800</pubDate><guid>https://kianorr.com/posts/aps-experience/</guid><description>This event took place between Oct 16th and Oct 21st in Washington and was the first APS conference I have attended. I ended up really liking the location. Spokane is a medium sized city, but had the energy of a small town, which I enjoyed quite a bit. They even had a good book shop :)
-It was an amazing experience because it basically took every single subfield of plasma and formed it into a convention of great people displaying their work.</description></item><item><title>Handmaid's Tale</title><link>https://kianorr.com/books/handmaids_tale/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kianorr.com/books/handmaids_tale/</guid><description>The restrictions of certain freedoms (freedoms to) give freedom from the dangers of the world. But then, you don&amp;rsquo;t have any will or power in what you are doing with your life.</description></item><item><title>Kian Orr | Curriculum Vitae</title><link>https://kianorr.com/cv/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kianorr.com/cv/</guid><description>PDF version
-(949) 456-3409 | kianorr@g.ucla.edu
-Research interests: Fusion | Plasma astrophysics | Plasma simulations
-Last updated: February 24, 2023
-Education University of California, Los Angeles (UCLA) 2020 - 2022
-Bachelors of Science in Physics; 3.53 GPA Irvine Valley College (IVC) 2018 - 2020
-Research and Work Experience TAE Technologies | Jr. Scientist June 2022 - present
-Spectroscopic measurements of plasma in TAE’s fusion device (C-2W) Theoretical and experimental investigation of particle confinement times Calculation of local main ion temperatures and rotational velocities through charge exchange Fully calibrated and redeployed a high-resolution spectrometer diagnostic after years of inactivity Taking lead for x-ray spectrometer diagnostic for the first measurements of x-rays from C-2W UCLA Large Plasma Device (LAPD) | Student Researcher for Troy Carter August 2021 - October 2022</description></item><item><title>Parable of the Talents</title><link>https://kianorr.com/books/parable_of_the_talents/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kianorr.com/books/parable_of_the_talents/</guid><description>There&amp;rsquo;s a lot of emphasis on education; the parable of the talents is basically a story about how one should spread and teach others their talents, rather than keep them for themselves. This is also a core value of Earthseed. There is a big emphasis on education because without it</description></item><item><title>Recursion</title><link>https://kianorr.com/books/recursion/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kianorr.com/books/recursion/</guid><description>It was alright overall. The idea of using memory as a type of time travel is interesting, but I feel that it got repetitive and I think the climax was way too early. Or at least, the climax near the was not big enough. I also don&amp;rsquo;t understand why Helena had to go back 33 years each time, that&amp;rsquo;s wild. They could have gone back five or so years before everything was addled and tried again. The ending was nice and emotional.</description></item><item><title>TAE</title><link>https://kianorr.com/research/tae/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kianorr.com/research/tae/</guid><description>TAE is a company attempting fusion with an field reversed configuration (FRC) device.
-I can&amp;rsquo;t get into specifics, but I&amp;rsquo;m in the spectroscopy group working on a spectrometer diagnostic and it&amp;rsquo;s post-shot processing code, as well as a separate machine learning project.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>kian orr&#39;s website on kian orr</title>
+    <link>http://localhost:1313/</link>
+    <description>Recent content in kian orr&#39;s website on kian orr</description>
+    <generator>Hugo -- 0.138.0</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 15 Nov 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>particle in cell from scratch</title>
+      <link>http://localhost:1313/research/pic/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/research/pic/</guid>
+      <description>&lt;p&gt;This code was made for the final project of a computational physics class at
+UCLA. It was my introduction to computational plasma physics.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>concert hall simulation</title>
+      <link>http://localhost:1313/research/acoustics/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/research/acoustics/</guid>
+      <description>&lt;p&gt;This simulation attempts to recreate the distribution of sound in square concert halls. The set-up is seen in the figure below, where the radii are calculate through geometry&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;setup&#34; loading=&#34;lazy&#34; src=&#34;http://localhost:1313/acoustics_setup.svg#center?w100&#34;&gt;&lt;/p&gt;
+&lt;p&gt;The radii come out to be&lt;/p&gt;
+&lt;p&gt;$$\begin{aligned}
+r_1 &amp;amp;= d_1 \sqrt{\left(\frac{y}{2d_1-x}\right)^2 + 1}
+\\
+r_3 &amp;amp;= d_3 \sqrt{\left(\frac{y}{2d_1+x}\right)^2 + 1}
+\\
+r_2 &amp;amp;= \sqrt{\left(\frac{y(2d_1-x)}{d_1}\right)^2 + (d_1 - x)^2}
+\\
+r_4 &amp;amp;= \sqrt{\left(\frac{y(2d_1+x)}{d_1}\right)^2 + (d_1 + x)^2}
+\\
+r_5 &amp;amp;= \sqrt{x^2 + y^2}
+\end{aligned}.$$&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>large plasma device at UCLA</title>
+      <link>http://localhost:1313/research/lapd/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/research/lapd/</guid>
+      <description>&lt;p&gt;&lt;img alt=&#34;lapd&#34; loading=&#34;lazy&#34; src=&#34;http://localhost:1313/lapd.png&#34;&gt;
+&lt;em&gt;a picture of the large plasma device&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Most of my research done at UCLA is summarized in a poster:
+&lt;a href=&#34;http://localhost:1313/poster.pdf&#34;&gt;Survery Spectroscopy in the Large Plasma Device&lt;/a&gt;.
+I presented this poster at APS DPP 2022.&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;poster&#34; loading=&#34;lazy&#34; src=&#34;http://localhost:1313/poster-1.png&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>fusion trading cards</title>
+      <link>http://localhost:1313/posts/trading-cards/</link>
+      <pubDate>Fri, 15 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/trading-cards/</guid>
+      <description>&lt;p&gt;For fusion week in 2024, fusion trading cards were handed out and I ended up being the artist
+for 3 of them.&lt;/p&gt;
+&lt;figure class=&#34;align-center &#34;&gt;
+    &lt;img loading=&#34;lazy&#34; src=&#34;http://localhost:1313/trading_cards_real.jpeg#center&#34;
+         alt=&#34;The three cards that I made: C2W, Laser Megajoule, and LAPD.&#34;/&gt; &lt;figcaption&gt;
+            Trading cards&lt;p&gt;The three cards that I made: C2W, Laser Megajoule, and LAPD.&lt;/p&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;I really enjoyed making these because I was able to play around with some different art styles also while contributing to something that I care about.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>first attempt at astrophotography</title>
+      <link>http://localhost:1313/posts/astro/</link>
+      <pubDate>Sat, 18 Feb 2023 15:17:05 -0800</pubDate>
+      <guid>http://localhost:1313/posts/astro/</guid>
+      <description>&lt;p&gt;Earlier this month, I camped in Anza Borrego for a night with my friend Matt to try out some astrophotography. The camping itself went alright &amp;ndash; it was cold, which I expected, but I did not think about how cold the ground was going to be when trying to sleep (didn&amp;rsquo;t bring a mat like a smart person).&lt;/p&gt;
+&lt;p&gt;I took about 700 pictures, each with a 5 second exposure, of the orion nebula with a camera that Matt let me borrow. I used Siril for post-processing, where I essentially followed &lt;a href=&#34;https://www.cloudynights.com/topic/742945-how-good-is-siril/&#34;&gt;this guide&lt;/a&gt;. I had trouble with the photometric color calibration step (kept on getting an error about plate solving) so I did the manual color calibration instead. This is the result:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>RK4 speeds in python, julia, and c&#43;&#43;</title>
+      <link>http://localhost:1313/posts/rkspeeds/</link>
+      <pubDate>Fri, 20 Jan 2023 15:17:05 -0800</pubDate>
+      <guid>http://localhost:1313/posts/rkspeeds/</guid>
+      <description>I wanted look more into Julia because it sounded like python but faster and better. So, I compared Julia to Python, and also threw C++ in there (do I regret that? Maybe)</description>
+    </item>
+    <item>
+      <title>code and graphic design</title>
+      <link>http://localhost:1313/posts/code-graphics/</link>
+      <pubDate>Tue, 20 Dec 2022 15:17:05 -0800</pubDate>
+      <guid>http://localhost:1313/posts/code-graphics/</guid>
+      <description>&lt;p&gt;I wanted to look into the intersection between graphic design and code.
+I found a program called Processing, where you can code in Java, C++ or Python.
+After trying a few simple things, this animation seemed to be pretty cool:&lt;/p&gt;
+&lt;video class=&#34;video-shortcode&#34; preload=&#34;auto&#34; playbackspeed=&#34;&#34; controls&gt;
+    &lt;source src=&#34;http://localhost:1313/out.mp4&#34; type=&#34;video/mp4&#34;&gt;
+    There should have been a video here but your browser does not seem
+    to support it.
+&lt;/video&gt;
+
+&lt;p&gt;The code for it is below. There are two functions that automatically run,
+&lt;code&gt;setup()&lt;/code&gt; (runs once like &lt;code&gt;__init__&lt;/code&gt;) and &lt;code&gt;draw()&lt;/code&gt; (continuously runs). So I just
+continuously increased the radius at which that ellipse is at, as well as it&amp;rsquo;s angle with
+a couple sines and cosines to make it dynamic.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>my experience at APS DPP 2022</title>
+      <link>http://localhost:1313/posts/aps-experience/</link>
+      <pubDate>Sat, 26 Nov 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/aps-experience/</guid>
+      <description>&lt;p&gt;This event took place between Oct 16th and Oct 21st in Washington and
+was the first APS conference I have attended. I ended up really liking the
+location. Spokane is a medium sized city, but had the energy of a small town,
+which I enjoyed quite a bit. They even had a good book shop :)&lt;/p&gt;
+&lt;p&gt;It was an amazing experience because it basically took every single subfield
+of plasma and formed it into a convention of great people displaying their
+work.
+It exposed me to a lot of new topics like dusty plasmas or runaway electrons,
+as well as deepened my interest for other areas like computational plasma.
+But I think I could work on talking and introducing myself to people at posters.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>different codes for bin averaging</title>
+      <link>http://localhost:1313/posts/bin-average/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/bin-average/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Handmaid&#39;s Tale</title>
+      <link>http://localhost:1313/books/handmaids_tale/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/books/handmaids_tale/</guid>
+      <description>The restrictions of certain freedoms (freedoms to) give freedom from the dangers of the world. But then, you don&amp;rsquo;t have any will or power in what you are doing with your life.</description>
+    </item>
+    <item>
+      <title>Kian Orr | Curriculum Vitae</title>
+      <link>http://localhost:1313/cv/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/cv/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://localhost:1313/CV.pdf&#34;&gt;PDF version&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;(949) 456-3409 | &lt;a href=&#34;mailto:kianorr@g.ucla.edu&#34;&gt;kianorr@g.ucla.edu&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Research interests&lt;/strong&gt;: Fusion | Plasma astrophysics | Plasma simulations&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Last updated&lt;/strong&gt;: February 24, 2023&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;education&#34;&gt;Education&lt;/h2&gt;
+&lt;h3 id=&#34;university-of-california-los-angeles-ucla&#34;&gt;University of California, Los Angeles (UCLA)&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;2020 - 2022&lt;/em&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Bachelors of Science in Physics; 3.53 GPA&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;irvine-valley-college-ivc&#34;&gt;Irvine Valley College (IVC)&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;2018 - 2020&lt;/em&gt;&lt;/p&gt;
+&lt;h2 id=&#34;research-and-work-experience&#34;&gt;Research and Work Experience&lt;/h2&gt;
+&lt;h3 id=&#34;tae-technologies--jr-scientistresearchtae&#34;&gt;&lt;a href=&#34;http://localhost:1313/research/tae/&#34;&gt;TAE Technologies | Jr. Scientist&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;June 2022 - present&lt;/em&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Spectroscopic measurements of plasma in TAE’s fusion device (C-2W)&lt;/li&gt;
+&lt;li&gt;Theoretical and experimental investigation of particle confinement times&lt;/li&gt;
+&lt;li&gt;Calculation of local main ion temperatures and rotational velocities through charge exchange&lt;/li&gt;
+&lt;li&gt;Fully calibrated and redeployed a high-resolution spectrometer diagnostic after years of inactivity&lt;/li&gt;
+&lt;li&gt;Taking lead for x-ray spectrometer diagnostic for the first measurements of x-rays from C-2W&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;ucla-large-plasma-device-lapd--student-researcher-for-troy-carterresearchlapd&#34;&gt;&lt;a href=&#34;http://localhost:1313/research/lapd/&#34;&gt;UCLA Large Plasma Device (LAPD) | Student Researcher for Troy Carter&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;August 2021 - October 2022&lt;/em&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>messing around with large PIC codes</title>
+      <link>http://localhost:1313/posts/large-pic/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/large-pic/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Parable of the Talents</title>
+      <link>http://localhost:1313/books/parable_of_the_talents/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/books/parable_of_the_talents/</guid>
+      <description>There&amp;rsquo;s a lot of emphasis on education; the parable of the talents is basically a story about how one should spread and teach others their talents, rather than keep them for themselves. This is also a core value of Earthseed. There is a big emphasis on education because without it</description>
+    </item>
+    <item>
+      <title>Recursion</title>
+      <link>http://localhost:1313/books/recursion/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/books/recursion/</guid>
+      <description>It was alright overall. The idea of using memory as a type of time travel is interesting, but I feel that it got repetitive and I think the climax was way too early. Or at least, the climax near the was not big enough. I also don&amp;rsquo;t understand why Helena had to go back 33 years each time, that&amp;rsquo;s wild. They could have gone back five or so years before everything was addled and tried again. The ending was nice and emotional.</description>
+    </item>
+    <item>
+      <title>TAE</title>
+      <link>http://localhost:1313/research/tae/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/research/tae/</guid>
+      <description>&lt;p&gt;&lt;img alt=&#34;FRC&#34; loading=&#34;lazy&#34; src=&#34;https://www.researchgate.net/publication/303845074/figure/fig8/AS:669651151376416@1536668684973/Field-reversed-configuration-Reprint-from-Figs-2e5-of-Ref-50.jpg&#34;&gt;&lt;/p&gt;
+&lt;p&gt;TAE is a company attempting fusion with an field reversed configuration (FRC) device.&lt;/p&gt;
+&lt;p&gt;I can&amp;rsquo;t get into specifics, but I&amp;rsquo;m in the spectroscopy group working on a spectrometer diagnostic and it&amp;rsquo;s post-shot processing code,
+as well as a separate machine learning project.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,3 +1,46 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>physics on kian orr</title><link>https://kianorr.com/tags/physics/</link><description>Recent content in physics on kian orr</description><generator>Hugo -- 0.118.2</generator><language>en</language><atom:link href="https://kianorr.com/tags/physics/index.xml" rel="self" type="application/rss+xml"/><item><title>particle in cell from scratch</title><link>https://kianorr.com/research/pic/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kianorr.com/research/pic/</guid><description>&lt;p>This code was made for the final project of a computational physics class at
-UCLA. It was my introduction to computational plasma physics.&lt;/p></description></item><item><title>TAE</title><link>https://kianorr.com/research/tae/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kianorr.com/research/tae/</guid><description>TAE is a company attempting fusion with an field reversed configuration (FRC) device.
-I can&amp;rsquo;t get into specifics, but I&amp;rsquo;m in the spectroscopy group working on a spectrometer diagnostic and it&amp;rsquo;s post-shot processing code, as well as a separate machine learning project.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Physics on kian orr</title>
+    <link>http://localhost:1313/tags/physics/</link>
+    <description>Recent content in Physics on kian orr</description>
+    <generator>Hugo -- 0.138.0</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 15 Nov 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/physics/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>particle in cell from scratch</title>
+      <link>http://localhost:1313/research/pic/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/research/pic/</guid>
+      <description>&lt;p&gt;This code was made for the final project of a computational physics class at
+UCLA. It was my introduction to computational plasma physics.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>fusion trading cards</title>
+      <link>http://localhost:1313/posts/trading-cards/</link>
+      <pubDate>Fri, 15 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/trading-cards/</guid>
+      <description>&lt;p&gt;For fusion week in 2024, fusion trading cards were handed out and I ended up being the artist
+for 3 of them.&lt;/p&gt;
+&lt;figure class=&#34;align-center &#34;&gt;
+    &lt;img loading=&#34;lazy&#34; src=&#34;http://localhost:1313/trading_cards_real.jpeg#center&#34;
+         alt=&#34;The three cards that I made: C2W, Laser Megajoule, and LAPD.&#34;/&gt; &lt;figcaption&gt;
+            Trading cards&lt;p&gt;The three cards that I made: C2W, Laser Megajoule, and LAPD.&lt;/p&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;I really enjoyed making these because I was able to play around with some different art styles also while contributing to something that I care about.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>TAE</title>
+      <link>http://localhost:1313/research/tae/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/research/tae/</guid>
+      <description>&lt;p&gt;&lt;img alt=&#34;FRC&#34; loading=&#34;lazy&#34; src=&#34;https://www.researchgate.net/publication/303845074/figure/fig8/AS:669651151376416@1536668684973/Field-reversed-configuration-Reprint-from-Figs-2e5-of-Ref-50.jpg&#34;&gt;&lt;/p&gt;
+&lt;p&gt;TAE is a company attempting fusion with an field reversed configuration (FRC) device.&lt;/p&gt;
+&lt;p&gt;I can&amp;rsquo;t get into specifics, but I&amp;rsquo;m in the spectroscopy group working on a spectrometer diagnostic and it&amp;rsquo;s post-shot processing code,
+as well as a separate machine learning project.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,1 +1,47 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Tags on kian orr</title><link>https://kianorr.com/tags/</link><description>Recent content in Tags on kian orr</description><generator>Hugo -- 0.118.2</generator><language>en</language><lastBuildDate>Fri, 20 Jan 2023 15:17:05 -0800</lastBuildDate><atom:link href="https://kianorr.com/tags/index.xml" rel="self" type="application/rss+xml"/><item><title>c++</title><link>https://kianorr.com/tags/c++/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kianorr.com/tags/c++/</guid><description/></item><item><title>julia</title><link>https://kianorr.com/tags/julia/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kianorr.com/tags/julia/</guid><description/></item><item><title>python</title><link>https://kianorr.com/tags/python/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kianorr.com/tags/python/</guid><description/></item><item><title>graphic design</title><link>https://kianorr.com/tags/graphic-design/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kianorr.com/tags/graphic-design/</guid><description/></item><item><title>physics</title><link>https://kianorr.com/tags/physics/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kianorr.com/tags/physics/</guid><description/></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Tags on kian orr</title>
+    <link>http://localhost:1313/tags/</link>
+    <description>Recent content in Tags on kian orr</description>
+    <generator>Hugo -- 0.138.0</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 15 Nov 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Graphic Design</title>
+      <link>http://localhost:1313/tags/graphic-design/</link>
+      <pubDate>Fri, 15 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/graphic-design/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Physics</title>
+      <link>http://localhost:1313/tags/physics/</link>
+      <pubDate>Fri, 15 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/physics/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>C&#43;&#43;</title>
+      <link>http://localhost:1313/tags/c&#43;&#43;/</link>
+      <pubDate>Fri, 20 Jan 2023 15:17:05 -0800</pubDate>
+      <guid>http://localhost:1313/tags/c&#43;&#43;/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Julia</title>
+      <link>http://localhost:1313/tags/julia/</link>
+      <pubDate>Fri, 20 Jan 2023 15:17:05 -0800</pubDate>
+      <guid>http://localhost:1313/tags/julia/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Python</title>
+      <link>http://localhost:1313/tags/python/</link>
+      <pubDate>Fri, 20 Jan 2023 15:17:05 -0800</pubDate>
+      <guid>http://localhost:1313/tags/python/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

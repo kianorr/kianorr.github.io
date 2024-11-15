@@ -1,7 +1,6 @@
 ---
 title: "my experience at APS DPP 2022"
-# date: 2022-11-26
-date: 2022-11-26T15:17:05-08:00
+date: 2022-11-26
 draft: false
 ---
 

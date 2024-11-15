@@ -1,132 +1,465 @@
-<!doctype html><html lang=en dir=auto><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>particle in cell from scratch | kian orr</title><meta name=keywords content="python,physics"><meta name=description content="This code was made for the final project of a computational physics class at
-UCLA. It was my introduction to computational plasma physics."><meta name=author content><link rel=canonical href=https://kianorr.com/research/pic/><link crossorigin=anonymous href=/assets/css/stylesheet.943e48136c1295552228613972a712891f66c8b89e90f9889210f316ac9b8b17.css integrity="sha256-lD5IE2wSlVUiKGE5cqcSiR9myLiekPmIkhDzFqybixc=" rel="preload stylesheet" as=style><link rel=icon href=https://kianorr.com/jupiter.png><link rel=icon type=image/png sizes=16x16 href=https://kianorr.com/favicon-16x16.png><link rel=icon type=image/png sizes=32x32 href=https://kianorr.com/favicon-32x32.png><link rel=apple-touch-icon href=https://kianorr.com/apple-touch-icon.png><link rel=mask-icon href=https://kianorr.com/safari-pinned-tab.svg><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--code-block-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style></noscript><meta property="og:title" content="particle in cell from scratch"><meta property="og:description" content="This code was made for the final project of a computational physics class at
-UCLA. It was my introduction to computational plasma physics."><meta property="og:type" content="article"><meta property="og:url" content="https://kianorr.com/research/pic/"><meta property="article:section" content="research"><meta name=twitter:card content="summary"><meta name=twitter:title content="particle in cell from scratch"><meta name=twitter:description content="This code was made for the final project of a computational physics class at
-UCLA. It was my introduction to computational plasma physics."><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"∫ research","item":"https://kianorr.com/research/"},{"@type":"ListItem","position":2,"name":"particle in cell from scratch","item":"https://kianorr.com/research/pic/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"particle in cell from scratch","name":"particle in cell from scratch","description":"This code was made for the final project of a computational physics class at UCLA. It was my introduction to computational plasma physics.\n","keywords":["python","physics"],"articleBody":"This code was made for the final project of a computational physics class at UCLA. It was my introduction to computational plasma physics.\nAll of the code is on my github, along with more detailed explanations and code tests in the jupyter notebook.\nTwo stream instabilityThe full animation is at the bottom of the page.\nwhat is particle in cell? Particle in cell (PIC) is a method to simulate the movement of particles under a force of some kind, which in my case is the force from an electric field, essentially simulating a plasma. At it’s core, a (1D) PIC code uses a mesh grid that has bins/cells. The edges of these bins are described by two $x$ coordinates, $x_j$ and $x_{j+1}$ (of course, in 2D or 3D, there’s more coords), and within that bin is a particle $i$ with location $r_i$. And from these particle locations, a denisty can be calculated at the edges as\n$$ \\rho_j = \\sum_{i=0}^{N_p}\\frac{x_{j+1} - r_i}{\\Delta x}, \\quad \\rho_{j+1}=\\sum_{i=0}^{N_p}\\frac{r_i - x_{j}}{\\Delta x}, $$\nwhere $N_p$ is the number of particles within a bin and $\\Delta x$ is the length of the cell. The particle in cell code that I made is the simplest case possible (I say that but it was very difficult and I needed a lot of guidance from my TA), as in it is 1D and electrostatic (time-independent) such that Maxwell’s equations are\n$$ \\nabla \\cdot E = \\rho, \\quad \\nabla \\cdot B = 0 \\\\ \\nabla \\times E = 0, \\quad \\nabla \\times B = 0. $$\nWe ultimately want to find the acceleration\n$$ F = ma = -qE \\\\ \\implies a = -\\frac{q}{m}E = -\\frac{q}{m}\\frac{\\text{d}\\phi}{\\text{d}x}, $$\nas that is what pushes the particles. $\\phi$ is found through combining the $E$ maxwell equations, such that\n\\begin{equation} \\frac{\\text{d}^2\\phi}{\\text{d}x^2} = \\rho \\qquad \\text{poisson’s equation}. \\end{equation}\nAnd from acceleration, we can find velocity and position, giving us our phase space.\nsolving methods Poisson’s equation can be estimated using the finite difference method so I tried that first. The first derivative of a general function using the finite difference method yields\n$$ f’(a) = \\frac{f(a+h)-f(a)}{h}, $$\nso then\n$$ f’’(a) = \\frac{f(a) - 2f(a+h) + f(a+2h)}{h^2}. $$\nIf we apply this function to our $\\phi$, we can define $f(a+h)$ as $\\phi_j$, so then from equation $1$,\n$$ \\frac{\\text{d}^2\\phi}{\\text{d}x^2} = \\frac{\\phi_{j-1} - 2\\phi_j + \\phi_{j+1}}{\\Delta x^2}=\\rho. $$ But using the matrix that comes from this finite difference equation doesn’t get us anywhere because it’s not invertible :( …. so we will use a method involving a discrete fourier transform instead. According to Birdsall, we know that $$ \\phi(k) = \\frac{\\rho(k)}{k^2} \\quad \\text{and} \\quad k = \\frac{2n\\pi}{L}, $$ where $\\rho(k)$ is our charge density. To transform to $\\rho(k)$, we use\n$$ G(k) = \\Delta x \\sum_{j=0}^N{G(x_j)} e^{-ikx_j} $$ and to transform back to $\\phi(x)$, we use the inverse DFT $$ G(x_j) = \\frac{1}{L} \\sum_{n=-N/2}^{N/2}{G(k)} e^{ikx_j}. $$\nUsing $\\phi$, we can now find $E$. Since we are only looking at the electric field from bin to bin in the mesh, we can approximate it as just the slope between two points, $\\phi_{j-1}$ and $\\phi_{j+1}$, such that\n$$ E_j = \\frac{\\text{d}\\phi(x_j)}{\\text{d}x} = \\frac{\\phi_{j+1} - \\phi_{j-1}}{2 \\Delta x}, $$\nwhich is represented in matrix form as\n$$ E = \\frac{1}{{2 \\Delta x}} \\begin{pmatrix} 0 \u0026 1 \u0026 0 \u0026 \\dots \u0026 0 \u0026 -1 \\\\ -1 \u0026 0 \u0026 1 \u0026 \u0026 \u0026 0\\\\ 0 \u0026 -1 \u0026 0 \u0026 \u0026 \u0026 \\vdots\\\\ \\vdots \u0026 \u0026 \u0026 \\ddots \u0026 \u0026 0\\\\ 0 \u0026 \u0026 \u0026 -1 \u0026 \u0026 1\\\\ 1 \u0026 0 \u0026 \\dots\u0026 0 \u0026 -1 \u0026 0 \\end{pmatrix} $$\nWe want the electric field at the locations of the particles within a bin at $r_i$. Thus, we essentially take a weighted average of the electric fields at $E_j$ and $E_{j+1}$ with weights used earlier to get the total electric field at $r_i$, such that\n$$ E_i = \\frac{x_{j+1} - r_i}{\\Delta x} E_j + \\frac{r_i - x_{j}}{\\Delta x} E_{j+1}, $$\nwhich is what we plug back in to our original acceleration. We repeat this process until a time $t_{final}$.\nplasma background To produce something like a two stream instability with my PIC code, I first had to understand some plasma basics.\nfundamental equations The essential plasma equations are\n\\begin{align} \\text{Vlaslov} \\quad \u0026\\partial_t v + v\\partial_x v = -\\frac{e}{m} E \\\\ \\text{continuity} \\quad \u0026\\partial_t n + \\partial_x(n v) = 0 \\\\ \\text{Gauss} \\quad \u0026\\partial_x E = -\\frac{e}{\\epsilon_0}(n - n_0) \\end{align}\nplasma oscillations For plasma oscillations, $n, v$ and $E$ are described by a constant background and a perturbation indicated by a $0$ and $1$ index, respectively, such that\n\\begin{align} n \u0026= n_0 + n_1 \\\\ v \u0026= v_0 + v_1 \\\\ E \u0026= E_0 + E_1. \\end{align} If we look at the continuity equation and plug in $n$ and $v$, we see that\n$$ \\partial_t (n_0 + n_1) + \\partial_x((n_0 + n_1)(v_0 + v_1)) = 0, $$\nwhere $\\partial_t n_0$ and $\\partial_x(n_0v_0)$ go to zero because $n_0$ and $v_0$ are constant over time. Then after algebra,\n$$ \\partial_t n_1 + \\partial_x(n_1v_0 + n_0v_1 + n_1v_1) = 0. $$\nAnd taking second order terms to be zero,\n$$ \\partial_t n_1 + \\partial_x(n_1v_0 + n_0v_1) = 0. $$\nWe can analyze two cases: no drift velocity ($v_0 = 0, E_0 = 0$) and yes drift velocity ($v_0 \\neq 0$). For each case, the continuity equation becomes\n\\begin{align} \\text{no drift} \\quad \u0026\\partial_t n_1 + n_0\\partial_x v_1 = 0 \\notag \\\\ \\text{ya drift} \\quad \u0026\\partial_t n_1 + \\partial_x n_1v_0 + n_0\\partial_x v_1 = 0. \\notag \\end{align}\nThen, for a plane wave $f_1(x, t)$ of amplitude $f_1$, we obtain\n$$ -i \\omega n_1 + i k n_0 v_1 = 0. $$\nThis process is done for all 3 equations in $(2), (3)$ and $(4)$, so we end up with 2 sets of 3 equations, which leads to the results of\n\\begin{align} \\left(1 - \\frac{\\omega_p^2}{\\omega^2}\\right)E_1=0 \\qquad \u0026\\text{Dispersion relation} \\ (v=0) \\notag \\\\ \\left(1 - \\frac{\\omega_p^2}{(\\omega-kv_0)^2}\\right)E_1=0 \\qquad \u0026\\text{Doppler waves} \\ (v\\neq0) \\notag \\end{align}\nThese relations are useful because they relate $k$ and $\\omega$ of a given wave.\ntwo stream instability In two stream instability, there are two populations of particles with densities $n_{0_1}$ and $n_{0_2}$, such that $n_0 = n_{0_1} + n_{0_2}$. There is also a constant background of ions that do not move through out the simulation such that the plasma is quasi-neutral. Since these ions are immobile, they essentially have an infinite mass. Additionaly, $v_{0_1} = 0$ and $v_{0_2} = v_0 \\neq 0$. If we apply these conditions to $(2), (3)$ and $(4)$, we find that\n\\begin{align} \u0026\\partial_t v_i + v_i \\partial_x v_i = -\\frac{e}{m} E \\notag \\\\ \u0026\\partial_t n_i + \\partial_x(n_i v_i) = 0 \\notag \\\\ \u0026\\partial_x E = -\\frac{e}{\\epsilon_0}(n_1 + n_2 - n_0), \\notag \\end{align}\nFollowing the same process we did for plasma oscillations, we end up with\n\\begin{gather} \\left[1 - \\frac{\\omega_p}{\\omega^2} + \\frac{\\omega_p}{\\omega-kv_0}\\right]E_1 = 0 \\notag \\\\ \\implies 1 - \\frac{\\omega_{p_1}^2}{(\\omega-kv_{0_1})^2} - \\frac{\\omega_{p_2}^2}{(\\omega-kv_{0_2})^2} = 0 \\notag \\end{gather}\nwhich means that when $\\omega_{p_1}=\\omega_{p_2}=\\omega_{p_e}$ and $v_{0_1}=-v_{0_2}=v_0$,\n$$ 1 = \\frac{1}{\\hat{\\omega} - \\alpha} + \\frac{1}{\\hat{\\omega} + \\alpha}, $$\nwhere\n$$ \\omega_p = \\frac{n_0 e^2}{\\epsilon_0m}, \\qquad \\hat{\\omega} = \\frac{\\omega}{\\omega_p}, \\qquad \\alpha = \\frac{kv_0}{\\omega_p}. $$\nAnd as the phase space shows, unstable modes appear in the plasma, even with low temperatures. The fastest growing mode $k_{max}$ is found by maximizing $\\hat{\\omega}$ with respect to $\\alpha$, such that\n\\begin{gather} \\frac{\\text{d}\\hat{\\omega}}{\\text{d}\\alpha} = 0 \\implies \\alpha = \\frac{\\sqrt{3}}{2}\\frac{k_{max}v_0}{\\omega_{p_e}} \\notag \\\\ \\implies k_{max} = \\frac{\\sqrt{3}}{2}\\frac{\\omega_{p_e}}{v_0}. \\notag \\end{gather}\nAnd the fastest growing mode corresponds to the number of phase space holes. At $v_0\\simeq \\pm 10 \\Delta x \\omega_{p_e}$, there should be one phase space hole, while at $v_0\\simeq \\pm 2\\Delta x \\omega_{p_e}$, there should be many phase space holes.\nresults — two stream instability This is an example of two stream instability with my PIC code (it goes quite fast so feel free to slow it down or click through it):\nThere’s a couple problems with the results. One being that the animation is quite rigid and squarish. Maybe something to do with my solver?\nThe other problem being the amount of phase space holes. With $v_0\\simeq \\pm 2 \\Delta x \\omega_{p_e}$, I would expect more than just two holes, while with $v_0\\simeq \\pm 10 \\Delta x \\omega_{p_e}$ (not here), I would expect only one, but I also get two holes. To solve this, I think I would have to dig into the physics more.\n","wordCount":"1395","inLanguage":"en","datePublished":"0001-01-01T00:00:00Z","dateModified":"0001-01-01T00:00:00Z","mainEntityOfPage":{"@type":"WebPage","@id":"https://kianorr.com/research/pic/"},"publisher":{"@type":"Organization","name":"kian orr","logo":{"@type":"ImageObject","url":"https://kianorr.com/jupiter.png"}}}</script></head><body id=top><script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add("dark"):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove("dark"):window.matchMedia("(prefers-color-scheme: dark)").matches&&document.body.classList.add("dark")</script><header class=header><nav class=nav><div class=logo><a href=https://kianorr.com/ accesskey=h title="kian orr (Alt + H)"><img src=https://kianorr.com/earth.png alt aria-label=logo height=30>kian orr</a><div class=logo-switches><button id=theme-toggle accesskey=t title="(Alt + T)"><svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button></div></div><ul id=menu><li><a href=https://kianorr.com/research title="∫ research"><span>∫ research</span></a></li><li><a href=https://kianorr.com/graphic-design title="❐ graphic design"><span>❐ graphic design</span></a></li><li><a href=https://kianorr.com/books title="✐ books"><span>✐ books</span></a></li><li><a href=https://kianorr.com/posts/ title=posts><span>posts</span></a></li><li><a href=https://kianorr.com/cv title=CV><span>CV</span></a></li></ul></nav></header><main class=main><article class=post-single><header class=post-header><div class=breadcrumbs><a href=https://kianorr.com/>home</a>&nbsp;»&nbsp;<a href=https://kianorr.com/research/>∫ research</a></div><h1 class="post-title entry-hint-parent">particle in cell from scratch</h1><div class=post-meta></div></header><div class=toc><details><summary accesskey=c title="(Alt + C)"><span class=details>table of contents</span></summary><div class=inner><ul><li><a href=#what-is-particle-in-cell aria-label="what is particle in cell?">what is particle in cell?</a></li><li><a href=#solving-methods aria-label="solving methods">solving methods</a></li><li><a href=#plasma-background aria-label="plasma background">plasma background</a><ul><li><a href=#fundamental-equations aria-label="fundamental equations">fundamental equations</a></li><li><a href=#plasma-oscillations aria-label="plasma oscillations">plasma oscillations</a></li><li><a href=#two-stream-instability aria-label="two stream instability">two stream instability</a></li></ul></li><li><a href=#results-----two-stream-instability aria-label="results &mdash; two stream instability">results &mdash; two stream instability</a></li></ul></div></details></div><div class=post-content><p>This code was made for the final project of a computational physics class at
-UCLA. It was my introduction to computational plasma physics.</p><p>All of the code is on my
-<a href=https://github.com/kianorr/PIC_from_scratch>github</a>, along with more detailed
-explanations and code tests in the jupyter notebook.</p><figure class=align-center><img loading=lazy src=/pic_two_stream.png#center alt="The full animation is at the bottom of the page."><figcaption>Two stream instability<p>The full animation is at the bottom of the page.</p></figcaption></figure><h2 id=what-is-particle-in-cell>what is particle in cell?<a hidden class=anchor aria-hidden=true href=#what-is-particle-in-cell>#</a></h2><p>Particle in cell (PIC) is a method to simulate the movement of particles under a force of some kind,
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>particle in cell from scratch | kian orr</title>
+<meta name="keywords" content="python, physics">
+<meta name="description" content="This code was made for the final project of a computational physics class at
+UCLA. It was my introduction to computational plasma physics.">
+<meta name="author" content="">
+<link rel="canonical" href="http://localhost:1313/research/pic/">
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false}
+            ]
+        });
+    });
+</script>
+<link crossorigin="anonymous" href="/assets/css/stylesheet.1f90c8c8e7a0422b7b6460367f0c3cfafc1695a79e594d14c909ae27b13c2999.css" integrity="sha256-H5DIyOegQit7ZGA2fww8&#43;vwWlaeeWU0UyQmuJ7E8KZk=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="http://localhost:1313/jupiter.png">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/research/pic/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="kian orr (Alt + H)">
+                <img src="http://localhost:1313/earth.png" alt="" aria-label="logo"
+                    height="30">kian orr</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/research" title="∫ research">
+                    <span>∫ research</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/graphic-design" title="❐ graphic design">
+                    <span>❐ graphic design</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/books" title="✐ books">
+                    <span>✐ books</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/posts/" title="posts">
+                    <span>posts</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/cv" title="CV">
+                    <span>CV</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="http://localhost:1313/">home</a>&nbsp;/&nbsp;<a href="http://localhost:1313/research/">∫ research</a></div>
+    <h1 class="post-title">
+      particle in cell from scratch
+    </h1>
+    <div class="post-meta">
+
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">table of contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#what-is-particle-in-cell" aria-label="what is particle in cell?">what is particle in cell?</a></li>
+                <li>
+                    <a href="#solving-methods" aria-label="solving methods">solving methods</a></li>
+                <li>
+                    <a href="#plasma-background" aria-label="plasma background">plasma background</a><ul>
+                        
+                <li>
+                    <a href="#fundamental-equations" aria-label="fundamental equations">fundamental equations</a></li>
+                <li>
+                    <a href="#plasma-oscillations" aria-label="plasma oscillations">plasma oscillations</a></li>
+                <li>
+                    <a href="#two-stream-instability" aria-label="two stream instability">two stream instability</a></li></ul>
+                </li>
+                <li>
+                    <a href="#results-----two-stream-instability" aria-label="results &mdash; two stream instability">results &mdash; two stream instability</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><p>This code was made for the final project of a computational physics class at
+UCLA. It was my introduction to computational plasma physics.</p>
+<p>All of the code is on my
+<a href="https://github.com/kianorr/PIC_from_scratch">github</a>, along with more detailed
+explanations and code tests in the jupyter notebook.</p>
+<figure class="align-center ">
+    <img loading="lazy" src="/pic_two_stream.png#center"
+         alt="The full animation is at the bottom of the page."/> <figcaption>
+            Two stream instability<p>The full animation is at the bottom of the page.</p>
+        </figcaption>
+</figure>
+
+<h2 id="what-is-particle-in-cell">what is particle in cell?<a hidden class="anchor" aria-hidden="true" href="#what-is-particle-in-cell">#</a></h2>
+<p>Particle in cell (PIC) is a method to simulate the movement of particles under a force of some kind,
 which in my case is the force from an electric field, essentially simulating a plasma. At it&rsquo;s core, a (1D) PIC code uses a mesh grid that has bins/cells.
 The edges of these bins are described by two $x$ coordinates, $x_j$ and $x_{j+1}$ (of course, in 2D or 3D, there&rsquo;s more coords), and within that bin is a particle $i$ with location $r_i$.
-And from these particle locations, a denisty can be calculated at the edges as</p><p>$$
+And from these particle locations, a denisty can be calculated at the edges as</p>
+<p>$$
 \rho_j = \sum_{i=0}^{N_p}\frac{x_{j+1} - r_i}{\Delta x}, \quad \rho_{j+1}=\sum_{i=0}^{N_p}\frac{r_i - x_{j}}{\Delta x},
-$$</p><p>where $N_p$ is the number of particles within a bin and $\Delta x$ is the length of the cell. The particle in cell code that I made is the simplest case possible (I say that but it was very difficult and I needed a lot of guidance from my TA), as in it is 1D and electrostatic (time-independent) such that Maxwell&rsquo;s equations are</p><p>$$
+$$</p>
+<p>where $N_p$ is the number of particles within a bin and $\Delta x$ is the length of the cell. The particle in cell code that I made is the simplest case possible (I say that but it was very difficult and I needed a lot of guidance from my TA), as in it is 1D and electrostatic (time-independent) such that Maxwell&rsquo;s equations are</p>
+<p>$$
 \nabla \cdot E = \rho, \quad \nabla \cdot B = 0
 \\
 \nabla \times E = 0, \quad \nabla \times B = 0.
-$$</p><p>We ultimately want to find the acceleration</p><p>$$
+$$</p>
+<p>We ultimately want to find the acceleration</p>
+<p>$$
 F = ma = -qE
 \\
 \implies a = -\frac{q}{m}E = -\frac{q}{m}\frac{\text{d}\phi}{\text{d}x},
-$$</p><p>as that is what pushes the particles. $\phi$ is found through combining the $E$
-maxwell equations, such that</p><p>\begin{equation}
+$$</p>
+<p>as that is what pushes the particles. $\phi$ is found through combining the $E$
+maxwell equations, such that</p>
+<p>\begin{equation}
 \frac{\text{d}^2\phi}{\text{d}x^2} = \rho \qquad \text{poisson&rsquo;s equation}.
-\end{equation}</p><p>And from acceleration, we can find velocity and position, giving us
-our phase space.</p><h2 id=solving-methods>solving methods<a hidden class=anchor aria-hidden=true href=#solving-methods>#</a></h2><p>Poisson&rsquo;s equation can be estimated using the finite difference method so I
+\end{equation}</p>
+<p>And from acceleration, we can find velocity and position, giving us
+our phase space.</p>
+<h2 id="solving-methods">solving methods<a hidden class="anchor" aria-hidden="true" href="#solving-methods">#</a></h2>
+<p>Poisson&rsquo;s equation can be estimated using the finite difference method so I
 tried that first. The first derivative of a general function using the finite
-difference method yields</p><p>$$
+difference method yields</p>
+<p>$$
 f&rsquo;(a) = \frac{f(a+h)-f(a)}{h},
-$$</p><p>so then</p><p>$$
+$$</p>
+<p>so then</p>
+<p>$$
 f&rsquo;&rsquo;(a) = \frac{f(a) - 2f(a+h) + f(a+2h)}{h^2}.
-$$</p><p>If we apply this function to our $\phi$, we can define $f(a+h)$ as $\phi_j$, so then from equation $1$,</p><p>$$
+$$</p>
+<p>If we apply this function to our $\phi$, we can define $f(a+h)$ as $\phi_j$, so then from equation $1$,</p>
+<p>$$
 \frac{\text{d}^2\phi}{\text{d}x^2} = \frac{\phi_{j-1} - 2\phi_j + \phi_{j+1}}{\Delta x^2}=\rho.
 $$
 But using the matrix that comes from this finite difference equation doesn&rsquo;t
-get us anywhere because it&rsquo;s not invertible :( &mldr;. so we will use a
+get us anywhere because it&rsquo;s not invertible :( &hellip;. so we will use a
 method involving a discrete fourier transform instead. According to
 Birdsall, we know that
 $$
 \phi(k) = \frac{\rho(k)}{k^2} \quad \text{and} \quad k = \frac{2n\pi}{L},
 $$
-where $\rho(k)$ is our charge density. To transform to $\rho(k)$, we use</p><p>$$
+where $\rho(k)$ is our charge density. To transform to $\rho(k)$, we use</p>
+<p>$$
 G(k) = \Delta x \sum_{j=0}^N{G(x_j)} e^{-ikx_j}
 $$
 and to transform back to $\phi(x)$, we use the inverse DFT
 $$
 G(x_j) = \frac{1}{L} \sum_{n=-N/2}^{N/2}{G(k)} e^{ikx_j}.
-$$</p><p>Using $\phi$, we can now find $E$. Since we are only looking at the electric field from bin to bin in the mesh, we can approximate it as just the slope between two points, $\phi_{j-1}$ and $\phi_{j+1}$, such that</p><p>$$
+$$</p>
+<p>Using $\phi$, we can now find $E$. Since we are only looking at the electric field from bin to bin in the mesh, we can approximate it as just the slope between two points, $\phi_{j-1}$ and $\phi_{j+1}$, such that</p>
+<p>$$
 E_j = \frac{\text{d}\phi(x_j)}{\text{d}x} = \frac{\phi_{j+1} - \phi_{j-1}}{2 \Delta x},
-$$</p><p>which is represented in matrix form as</p><p>$$
+$$</p>
+<p>which is represented in matrix form as</p>
+<p>$$
 E = \frac{1}{{2 \Delta x}}
 \begin{pmatrix}
-0 & 1 & 0 & \dots & 0 & -1 \\
--1 & 0 & 1 & & & 0\\
-0 & -1 & 0 & & & \vdots\\
-\vdots & & & \ddots & & 0\\
-0 & & & -1 & & 1\\
-1 & 0 & \dots& 0 & -1 & 0
+0 &amp; 1 &amp; 0 &amp; \dots &amp; 0 &amp; -1 \\
+-1 &amp; 0 &amp; 1 &amp;  &amp; &amp; 0\\
+0 &amp; -1 &amp; 0 &amp;  &amp;  &amp;  \vdots\\
+\vdots  &amp;   &amp; &amp;  \ddots &amp; &amp; 0\\
+0 &amp;  &amp; &amp; -1 &amp;  &amp; 1\\
+1 &amp; 0 &amp; \dots&amp; 0 &amp; -1 &amp; 0
 \end{pmatrix}
-$$</p><p>We want the electric field at the locations of the particles within a
+$$</p>
+<p>We want the electric field at the locations of the particles within a
 bin at $r_i$. Thus, we essentially take a weighted average of the
 electric fields at $E_j$ and $E_{j+1}$ with weights used earlier to get
-the total electric field at $r_i$, such that</p><p>$$
+the total electric field at $r_i$, such that</p>
+<p>$$
 E_i = \frac{x_{j+1} - r_i}{\Delta x} E_j + \frac{r_i - x_{j}}{\Delta x} E_{j+1},
-$$</p><p>which is what we plug back in to our original acceleration.
-We repeat this process until a time $t_{final}$.</p><h2 id=plasma-background>plasma background<a hidden class=anchor aria-hidden=true href=#plasma-background>#</a></h2><p>To produce something like a two stream instability with my PIC code, I first had to
-understand some plasma basics.</p><h3 id=fundamental-equations>fundamental equations<a hidden class=anchor aria-hidden=true href=#fundamental-equations>#</a></h3><p>The essential plasma equations are</p><p>\begin{align}
-\text{Vlaslov} \quad &\partial_t v + v\partial_x v = -\frac{e}{m} E
+$$</p>
+<p>which is what we plug back in to our original acceleration.
+We repeat this process until a time $t_{final}$.</p>
+<h2 id="plasma-background">plasma background<a hidden class="anchor" aria-hidden="true" href="#plasma-background">#</a></h2>
+<p>To produce something like a two stream instability with my PIC code, I first had to
+understand some plasma basics.</p>
+<h3 id="fundamental-equations">fundamental equations<a hidden class="anchor" aria-hidden="true" href="#fundamental-equations">#</a></h3>
+<p>The essential plasma equations are</p>
+<p>\begin{align}
+\text{Vlaslov} \quad &amp;\partial_t v + v\partial_x v = -\frac{e}{m} E
 \\
-\text{continuity} \quad &\partial_t n + \partial_x(n v) = 0
+\text{continuity} \quad &amp;\partial_t n + \partial_x(n v) = 0
 \\
-\text{Gauss} \quad &\partial_x E = -\frac{e}{\epsilon_0}(n - n_0)
-\end{align}</p><h3 id=plasma-oscillations>plasma oscillations<a hidden class=anchor aria-hidden=true href=#plasma-oscillations>#</a></h3><p>For plasma oscillations, $n, v$ and $E$ are described by a constant background and a perturbation indicated by a $0$ and $1$ index, respectively, such that</p><p>\begin{align}
-n &= n_0 + n_1
+\text{Gauss} \quad &amp;\partial_x E = -\frac{e}{\epsilon_0}(n - n_0)
+\end{align}</p>
+<h3 id="plasma-oscillations">plasma oscillations<a hidden class="anchor" aria-hidden="true" href="#plasma-oscillations">#</a></h3>
+<p>For plasma oscillations, $n, v$ and $E$ are described by a constant background and a perturbation indicated by a $0$ and $1$ index, respectively, such that</p>
+<p>\begin{align}
+n &amp;= n_0 + n_1
 \\
-v &= v_0 + v_1
+v &amp;= v_0 + v_1
 \\
-E &= E_0 + E_1.
+E &amp;= E_0 + E_1.
 \end{align}
-If we look at the continuity equation and plug in $n$ and $v$, we see that</p><p>$$
+If we look at the continuity equation and plug in $n$ and $v$, we see that</p>
+<p>$$
 \partial_t (n_0 + n_1) + \partial_x((n_0 + n_1)(v_0 + v_1)) = 0,
-$$</p><p>where $\partial_t n_0$ and $\partial_x(n_0v_0)$ go to zero because $n_0$ and $v_0$ are constant over time. Then after algebra,</p><p>$$
+$$</p>
+<p>where $\partial_t n_0$ and $\partial_x(n_0v_0)$ go to zero because $n_0$ and $v_0$ are constant over time. Then after algebra,</p>
+<p>$$
 \partial_t n_1 + \partial_x(n_1v_0 + n_0v_1 + n_1v_1) = 0.
-$$</p><p>And taking second order terms to be zero,</p><p>$$
+$$</p>
+<p>And taking second order terms to be zero,</p>
+<p>$$
 \partial_t n_1 + \partial_x(n_1v_0 + n_0v_1) = 0.
-$$</p><p>We can analyze two cases: no drift velocity ($v_0 = 0, E_0 = 0$) and yes drift velocity ($v_0 \neq 0$). For each case, the continuity equation becomes</p><p>\begin{align}
-\text{no drift} \quad &\partial_t n_1 + n_0\partial_x v_1 = 0 \notag
+$$</p>
+<p>We can analyze two cases: no drift velocity ($v_0 = 0, E_0 = 0$) and yes drift velocity ($v_0 \neq 0$). For each case, the continuity equation becomes</p>
+<p>\begin{align}
+\text{no drift} \quad &amp;\partial_t n_1 + n_0\partial_x v_1 = 0 \notag
 \\
-\text{ya drift} \quad &\partial_t n_1 + \partial_x n_1v_0 + n_0\partial_x v_1 = 0. \notag
-\end{align}</p><p>Then, for a plane wave $f_1(x, t)$ of amplitude $f_1$, we obtain</p><p>$$
+\text{ya drift} \quad &amp;\partial_t n_1 + \partial_x n_1v_0 + n_0\partial_x v_1 = 0. \notag
+\end{align}</p>
+<p>Then, for a plane wave $f_1(x, t)$ of amplitude $f_1$, we obtain</p>
+<p>$$
 -i \omega n_1 + i k n_0 v_1 = 0.
-$$</p><p>This process is done for all 3 equations in $(2), (3)$ and $(4)$,
-so we end up with 2 sets of 3 equations, which leads to the results of</p><p>\begin{align}
-\left(1 - \frac{\omega_p^2}{\omega^2}\right)E_1=0 \qquad &\text{Dispersion relation} \ (v=0) \notag
+$$</p>
+<p>This process is done for all 3 equations in $(2), (3)$ and $(4)$,
+so we end up with 2 sets of 3 equations, which leads to the results of</p>
+<p>\begin{align}
+\left(1 - \frac{\omega_p^2}{\omega^2}\right)E_1=0 \qquad &amp;\text{Dispersion relation} \ (v=0) \notag
 \\
-\left(1 - \frac{\omega_p^2}{(\omega-kv_0)^2}\right)E_1=0 \qquad &\text{Doppler waves} \ (v\neq0) \notag
-\end{align}</p><p>These relations are useful because they relate $k$ and $\omega$ of a given wave.</p><h3 id=two-stream-instability>two stream instability<a hidden class=anchor aria-hidden=true href=#two-stream-instability>#</a></h3><p>In two stream instability, there are two populations of particles with
+\left(1 - \frac{\omega_p^2}{(\omega-kv_0)^2}\right)E_1=0 \qquad &amp;\text{Doppler waves} \ (v\neq0) \notag
+\end{align}</p>
+<p>These relations are useful because they relate $k$ and $\omega$ of a given wave.</p>
+<h3 id="two-stream-instability">two stream instability<a hidden class="anchor" aria-hidden="true" href="#two-stream-instability">#</a></h3>
+<p>In two stream instability, there are two populations of particles with
 densities $n_{0_1}$ and $n_{0_2}$, such that $n_0 = n_{0_1} + n_{0_2}$.
 There is also a constant background of ions that do not move through out
 the simulation such that the plasma is quasi-neutral.
 Since these ions are immobile, they essentially have an infinite mass.
 Additionaly, $v_{0_1} = 0$ and $v_{0_2} = v_0 \neq 0$.
-If we apply these conditions to $(2), (3)$ and $(4)$, we find that</p><p>\begin{align}
-&\partial_t v_i + v_i \partial_x v_i = -\frac{e}{m} E \notag
+If we apply these conditions to $(2), (3)$ and $(4)$, we find that</p>
+<p>\begin{align}
+&amp;\partial_t v_i + v_i \partial_x v_i = -\frac{e}{m} E \notag
 \\
-&\partial_t n_i + \partial_x(n_i v_i) = 0 \notag
+&amp;\partial_t n_i + \partial_x(n_i v_i) = 0 \notag
 \\
-&\partial_x E = -\frac{e}{\epsilon_0}(n_1 + n_2 - n_0), \notag
-\end{align}</p><p>Following the same process we did for plasma oscillations, we end up with</p><p>\begin{gather}
+&amp;\partial_x E = -\frac{e}{\epsilon_0}(n_1 + n_2 - n_0), \notag
+\end{align}</p>
+<p>Following the same process we did for plasma oscillations, we end up with</p>
+<p>\begin{gather}
 \left[1 - \frac{\omega_p}{\omega^2} + \frac{\omega_p}{\omega-kv_0}\right]E_1 = 0 \notag
 \\
 \implies 1 - \frac{\omega_{p_1}^2}{(\omega-kv_{0_1})^2} - \frac{\omega_{p_2}^2}{(\omega-kv_{0_2})^2} = 0 \notag
-\end{gather}</p><p>which means that when $\omega_{p_1}=\omega_{p_2}=\omega_{p_e}$ and
-$v_{0_1}=-v_{0_2}=v_0$,</p><p>$$
+\end{gather}</p>
+<p>which means that when $\omega_{p_1}=\omega_{p_2}=\omega_{p_e}$ and
+$v_{0_1}=-v_{0_2}=v_0$,</p>
+<p>$$
 1 = \frac{1}{\hat{\omega} - \alpha} + \frac{1}{\hat{\omega} + \alpha},
-$$</p><p>where</p><p>$$
+$$</p>
+<p>where</p>
+<p>$$
 \omega_p = \frac{n_0 e^2}{\epsilon_0m}, \qquad \hat{\omega} = \frac{\omega}{\omega_p}, \qquad \alpha = \frac{kv_0}{\omega_p}.
-$$</p><p>And as the phase space shows, unstable modes appear in the plasma,
+$$</p>
+<p>And as the phase space shows, unstable modes appear in the plasma,
 even with low temperatures. The fastest growing mode $k_{max}$ is found by
-maximizing $\hat{\omega}$ with respect to $\alpha$, such that</p><p>\begin{gather}
+maximizing $\hat{\omega}$ with respect to $\alpha$, such that</p>
+<p>\begin{gather}
 \frac{\text{d}\hat{\omega}}{\text{d}\alpha} = 0
 \implies \alpha = \frac{\sqrt{3}}{2}\frac{k_{max}v_0}{\omega_{p_e}} \notag
 \\
 \implies k_{max} = \frac{\sqrt{3}}{2}\frac{\omega_{p_e}}{v_0}. \notag
-\end{gather}</p><p>And the fastest growing mode corresponds to the number of phase space holes.
+\end{gather}</p>
+<p>And the fastest growing mode corresponds to the number of phase space holes.
 At $v_0\simeq \pm 10 \Delta x \omega_{p_e}$, there should be one phase
 space hole, while at $v_0\simeq \pm 2\Delta x \omega_{p_e}$, there
-should be many phase space holes.</p><h2 id=results-----two-stream-instability>results &mdash; two stream instability<a hidden class=anchor aria-hidden=true href=#results-----two-stream-instability>#</a></h2><p>This is an example of two stream instability with my PIC code (it goes quite
-fast so feel free to slow it down or click through it):</p><p>There&rsquo;s a couple problems with the results. One being that the animation is
-quite rigid and squarish. Maybe something to do with my solver?</p><p>The other problem being the amount of phase space holes.
+should be many phase space holes.</p>
+<h2 id="results-----two-stream-instability">results &mdash; two stream instability<a hidden class="anchor" aria-hidden="true" href="#results-----two-stream-instability">#</a></h2>
+<p>This is an example of two stream instability with my PIC code (it goes quite
+fast so feel free to slow it down or click through it):</p>
+<!-- raw HTML omitted -->
+<video class="video-shortcode" preload="auto" playbackspeed="0.5" controls>
+    <source src="/dx2.mp4" type="video/mp4">
+    There should have been a video here but your browser does not seem
+    to support it.
+</video>
+
+<p>There&rsquo;s a couple problems with the results. One being that the animation is
+quite rigid and squarish. Maybe something to do with my solver?</p>
+<p>The other problem being the amount of phase space holes.
 With $v_0\simeq \pm 2 \Delta x \omega_{p_e}$, I would expect more than just
 two holes, while with $v_0\simeq \pm 10 \Delta x \omega_{p_e}$ (not here), I would expect
 only one, but I also get two holes. To solve this, I think I would have to
-dig into the physics more.</p></div><footer class=post-footer><ul class=post-tags><li><a href=https://kianorr.com/tags/python/>python</a></li><li><a href=https://kianorr.com/tags/physics/>physics</a></li></ul></footer></article></main><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg></a><script>let menu=document.getElementById("menu");menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove("dark"),localStorage.setItem("pref-theme","light")):(document.body.classList.add("dark"),localStorage.setItem("pref-theme","dark"))})</script></body></html>
+dig into the physics more.</p>
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

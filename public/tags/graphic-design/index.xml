@@ -1,1 +1,47 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>graphic design on kian orr</title><link>https://kianorr.com/tags/graphic-design/</link><description>Recent content in graphic design on kian orr</description><generator>Hugo -- 0.118.2</generator><language>en</language><atom:link href="https://kianorr.com/tags/graphic-design/index.xml" rel="self" type="application/rss+xml"/><item><title>❐ graphic design</title><link>https://kianorr.com/graphic-design/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kianorr.com/graphic-design/</guid><description>This is some of my graphic design stuff &amp;mdash; enjoy!</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Graphic Design on kian orr</title>
+    <link>http://localhost:1313/tags/graphic-design/</link>
+    <description>Recent content in Graphic Design on kian orr</description>
+    <generator>Hugo -- 0.138.0</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 15 Nov 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/graphic-design/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>fusion trading cards</title>
+      <link>http://localhost:1313/posts/trading-cards/</link>
+      <pubDate>Fri, 15 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/trading-cards/</guid>
+      <description>&lt;p&gt;For fusion week in 2024, fusion trading cards were handed out and I ended up being the artist
+for 3 of them.&lt;/p&gt;
+&lt;figure class=&#34;align-center &#34;&gt;
+    &lt;img loading=&#34;lazy&#34; src=&#34;http://localhost:1313/trading_cards_real.jpeg#center&#34;
+         alt=&#34;The three cards that I made: C2W, Laser Megajoule, and LAPD.&#34;/&gt; &lt;figcaption&gt;
+            Trading cards&lt;p&gt;The three cards that I made: C2W, Laser Megajoule, and LAPD.&lt;/p&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;I really enjoyed making these because I was able to play around with some different art styles also while contributing to something that I care about.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>code and graphic design</title>
+      <link>http://localhost:1313/posts/code-graphics/</link>
+      <pubDate>Tue, 20 Dec 2022 15:17:05 -0800</pubDate>
+      <guid>http://localhost:1313/posts/code-graphics/</guid>
+      <description>&lt;p&gt;I wanted to look into the intersection between graphic design and code.
+I found a program called Processing, where you can code in Java, C++ or Python.
+After trying a few simple things, this animation seemed to be pretty cool:&lt;/p&gt;
+&lt;video class=&#34;video-shortcode&#34; preload=&#34;auto&#34; playbackspeed=&#34;&#34; controls&gt;
+    &lt;source src=&#34;http://localhost:1313/out.mp4&#34; type=&#34;video/mp4&#34;&gt;
+    There should have been a video here but your browser does not seem
+    to support it.
+&lt;/video&gt;
+
+&lt;p&gt;The code for it is below. There are two functions that automatically run,
+&lt;code&gt;setup()&lt;/code&gt; (runs once like &lt;code&gt;__init__&lt;/code&gt;) and &lt;code&gt;draw()&lt;/code&gt; (continuously runs). So I just
+continuously increased the radius at which that ellipse is at, as well as it&amp;rsquo;s angle with
+a couple sines and cosines to make it dynamic.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

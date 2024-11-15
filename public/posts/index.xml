@@ -1,4 +1,92 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>posts on kian orr</title><link>https://kianorr.com/posts/</link><description>Recent content in posts on kian orr</description><generator>Hugo -- 0.118.2</generator><language>en</language><lastBuildDate>Sat, 18 Feb 2023 15:17:05 -0800</lastBuildDate><atom:link href="https://kianorr.com/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>first attempt at astrophotography</title><link>https://kianorr.com/posts/astro/</link><pubDate>Sat, 18 Feb 2023 15:17:05 -0800</pubDate><guid>https://kianorr.com/posts/astro/</guid><description>Earlier this month, I camped in Anza Borrego for a night with my friend Matt to try out some astrophotography. The camping itself went alright &amp;ndash; it was cold, which I expected, but I did not think about how cold the ground was going to be when trying to sleep (didn&amp;rsquo;t bring a mat like a smart person).
-I took about 700 pictures, each with a 5 second exposure, of the orion nebula with a camera that Matt let me borrow.</description></item><item><title>RK4 speeds in python, julia, and c++</title><link>https://kianorr.com/posts/rkspeeds/</link><pubDate>Fri, 20 Jan 2023 15:17:05 -0800</pubDate><guid>https://kianorr.com/posts/rkspeeds/</guid><description>I wanted look more into Julia because it sounded like python but faster and better. So, I compared Julia to Python, and also threw C++ in there (do I regret that? Maybe)</description></item><item><title>code and graphic design</title><link>https://kianorr.com/posts/code-graphics/</link><pubDate>Tue, 20 Dec 2022 15:17:05 -0800</pubDate><guid>https://kianorr.com/posts/code-graphics/</guid><description>I wanted to look into the intersection between graphic design and code. I found a program called Processing, where you can code in Java, C++ or Python. After trying a few simple things, this animation seemed to be pretty cool:
-The code for it is below. There are two functions that automatically run, setup() (runs once like __init__) and draw() (continuously runs). So I just continuously increased the radius at which that ellipse is at, as well as it&amp;rsquo;s angle with a couple sines and cosines to make it dynamic.</description></item><item><title>my experience at APS DPP 2022</title><link>https://kianorr.com/posts/aps-experience/</link><pubDate>Sat, 26 Nov 2022 15:17:05 -0800</pubDate><guid>https://kianorr.com/posts/aps-experience/</guid><description>This event took place between Oct 16th and Oct 21st in Washington and was the first APS conference I have attended. I ended up really liking the location. Spokane is a medium sized city, but had the energy of a small town, which I enjoyed quite a bit. They even had a good book shop :)
-It was an amazing experience because it basically took every single subfield of plasma and formed it into a convention of great people displaying their work.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>posts on kian orr</title>
+    <link>http://localhost:1313/posts/</link>
+    <description>Recent content in posts on kian orr</description>
+    <generator>Hugo -- 0.138.0</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 15 Nov 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>fusion trading cards</title>
+      <link>http://localhost:1313/posts/trading-cards/</link>
+      <pubDate>Fri, 15 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/trading-cards/</guid>
+      <description>&lt;p&gt;For fusion week in 2024, fusion trading cards were handed out and I ended up being the artist
+for 3 of them.&lt;/p&gt;
+&lt;figure class=&#34;align-center &#34;&gt;
+    &lt;img loading=&#34;lazy&#34; src=&#34;http://localhost:1313/trading_cards_real.jpeg#center&#34;
+         alt=&#34;The three cards that I made: C2W, Laser Megajoule, and LAPD.&#34;/&gt; &lt;figcaption&gt;
+            Trading cards&lt;p&gt;The three cards that I made: C2W, Laser Megajoule, and LAPD.&lt;/p&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;I really enjoyed making these because I was able to play around with some different art styles also while contributing to something that I care about.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>first attempt at astrophotography</title>
+      <link>http://localhost:1313/posts/astro/</link>
+      <pubDate>Sat, 18 Feb 2023 15:17:05 -0800</pubDate>
+      <guid>http://localhost:1313/posts/astro/</guid>
+      <description>&lt;p&gt;Earlier this month, I camped in Anza Borrego for a night with my friend Matt to try out some astrophotography. The camping itself went alright &amp;ndash; it was cold, which I expected, but I did not think about how cold the ground was going to be when trying to sleep (didn&amp;rsquo;t bring a mat like a smart person).&lt;/p&gt;
+&lt;p&gt;I took about 700 pictures, each with a 5 second exposure, of the orion nebula with a camera that Matt let me borrow. I used Siril for post-processing, where I essentially followed &lt;a href=&#34;https://www.cloudynights.com/topic/742945-how-good-is-siril/&#34;&gt;this guide&lt;/a&gt;. I had trouble with the photometric color calibration step (kept on getting an error about plate solving) so I did the manual color calibration instead. This is the result:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>RK4 speeds in python, julia, and c&#43;&#43;</title>
+      <link>http://localhost:1313/posts/rkspeeds/</link>
+      <pubDate>Fri, 20 Jan 2023 15:17:05 -0800</pubDate>
+      <guid>http://localhost:1313/posts/rkspeeds/</guid>
+      <description>I wanted look more into Julia because it sounded like python but faster and better. So, I compared Julia to Python, and also threw C++ in there (do I regret that? Maybe)</description>
+    </item>
+    <item>
+      <title>code and graphic design</title>
+      <link>http://localhost:1313/posts/code-graphics/</link>
+      <pubDate>Tue, 20 Dec 2022 15:17:05 -0800</pubDate>
+      <guid>http://localhost:1313/posts/code-graphics/</guid>
+      <description>&lt;p&gt;I wanted to look into the intersection between graphic design and code.
+I found a program called Processing, where you can code in Java, C++ or Python.
+After trying a few simple things, this animation seemed to be pretty cool:&lt;/p&gt;
+&lt;video class=&#34;video-shortcode&#34; preload=&#34;auto&#34; playbackspeed=&#34;&#34; controls&gt;
+    &lt;source src=&#34;http://localhost:1313/out.mp4&#34; type=&#34;video/mp4&#34;&gt;
+    There should have been a video here but your browser does not seem
+    to support it.
+&lt;/video&gt;
+
+&lt;p&gt;The code for it is below. There are two functions that automatically run,
+&lt;code&gt;setup()&lt;/code&gt; (runs once like &lt;code&gt;__init__&lt;/code&gt;) and &lt;code&gt;draw()&lt;/code&gt; (continuously runs). So I just
+continuously increased the radius at which that ellipse is at, as well as it&amp;rsquo;s angle with
+a couple sines and cosines to make it dynamic.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>my experience at APS DPP 2022</title>
+      <link>http://localhost:1313/posts/aps-experience/</link>
+      <pubDate>Sat, 26 Nov 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/aps-experience/</guid>
+      <description>&lt;p&gt;This event took place between Oct 16th and Oct 21st in Washington and
+was the first APS conference I have attended. I ended up really liking the
+location. Spokane is a medium sized city, but had the energy of a small town,
+which I enjoyed quite a bit. They even had a good book shop :)&lt;/p&gt;
+&lt;p&gt;It was an amazing experience because it basically took every single subfield
+of plasma and formed it into a convention of great people displaying their
+work.
+It exposed me to a lot of new topics like dusty plasmas or runaway electrons,
+as well as deepened my interest for other areas like computational plasma.
+But I think I could work on talking and introducing myself to people at posters.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>different codes for bin averaging</title>
+      <link>http://localhost:1313/posts/bin-average/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/bin-average/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>messing around with large PIC codes</title>
+      <link>http://localhost:1313/posts/large-pic/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/large-pic/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>
