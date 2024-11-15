@@ -2,7 +2,7 @@
 title: "code and graphic design"
 # date: 2022-12-20
 date: 2022-12-20T15:17:05-08:00
-tags: ["python"]
+tags: ["python", "graphic design"]
 draft: false
 ---
 I wanted to look into the intersection between graphic design and code.
