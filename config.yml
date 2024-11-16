@@ -17,6 +17,8 @@ languages:
   en:
     contentDir: content/english
     languageName: English
+    taxonomies:
+      tag: "post-tags"
     weight: 1
     menu:
         main:

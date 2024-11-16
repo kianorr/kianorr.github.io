@@ -297,6 +297,24 @@
     margin-top: 56px;
 }
 
+/* custom tags */
+.tags {
+    margin-top: 10px;
+  }
+  
+  .tags a {
+    text-decoration: none;
+    color: #8eb1c8;
+    background: #423b3b;
+    padding: 5px 10px;
+    margin-right: 5px;
+    border-radius: 5px;
+  }
+  
+  .tags a:hover {
+    background: #4d4545;
+  }
+
 .post-tags li {
     display: inline-block;
     margin-inline-end: 3px;

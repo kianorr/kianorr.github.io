@@ -35,6 +35,15 @@
   </div>
   {{- end }}
 
+  {{ with .Params.tags }}
+    <div class="tags">
+      <!-- <strong>Tags:</strong> -->
+      {{ range . }}
+        <a href="{{ "tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
+      {{ end }}
+    </div>
+  {{ end }}
+
   <footer class="post-footer">
     {{- $tags := .Language.Params.Taxonomies.tag | default "Tags" }}
     <ul class="post-tags">
