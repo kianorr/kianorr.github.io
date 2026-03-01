@@ -20,7 +20,7 @@
         });
     });
 </script>
-<link crossorigin="anonymous" href="/assets/css/stylesheet.54338ec76c521b4d47b9210aeb1184c1172578345213c8f704c32adc0dfcda4d.css" integrity="sha256-VDOOx2xSG01HuSEK6xGEwRcleDRSE8j3BMMq3A382k0=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.fb8385efbcdc51d7c39f8e5ba619b73aec766537af0cfa421346c014bae7a8df.css" integrity="sha256-&#43;4OF77zcUdfDn45bphm3Oux2ZTevDPpCE0bAFLrnqN8=" rel="preload stylesheet" as="style">
 <link rel="icon" href="http://localhost:1313/jupiter.png">
 <link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
@@ -68,6 +68,7 @@
 
     </style>
 </noscript>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 </head>
 
 <body class="list" id="top">
@@ -215,6 +216,27 @@
     })
 
 </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const swiper = new Swiper('.gallery-slider', {
+                loop: true,
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+            });
+        });
+    </script>
+
 </body>
 
 </html>
