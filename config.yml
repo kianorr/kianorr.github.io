@@ -8,8 +8,8 @@ math:
 
 #defaultContentLanguage: en
 #defaultContentLanguageInSubdir: false
-disableLanguages:
- - se
+#disableLanguages:
+# - se
 cover:
   image: "../../sweden.jpg"
   relative: true
@@ -34,31 +34,71 @@ languages:
             - name: ❐ graphic design
               url: "./graphic-design"
               weight: 2
+            - name: ❐ film photography
+              url: "./film"
+              weight: 3
+                #- name: ✐ books
+                #url: "./books"
+                #weight: 3
+    params:
+      label:
+            text: "kian orr"
+            icon: "/earth.png"
+      hideFooter: true
+      ShowPostNavLinks: false
+      ShowToc: true
+      ShowBreadCrumbs: true
+      
+      assets:
+        favicon: "/jupiter.png"
+
+      socialIcons:
+              - name: github
+                url: "https://github.com/kianorr"
+      homeInfoParams:
+          Title: "hello  (•◡•) /"
+          Content: "my name is kian johan nils orr and this is my website! :) It features different areas of my life, like [physics research](/research), [books](/books), and [graphic design](/graphic-design). 
+          I am currently in grad school, where I am beginning to do research in HED plasma physics. Below are some recent things I've done."
+  sv:
+    contentDir: content/swedish
+    languageName: Swedish
+    languageCode: sv
+    taxonomies:
+      tag: "post-tags"
+    weight: 2
+    #dateFormat: "Jan. 2, 2006"
+    menu:
+        main:
+            - name: posts
+              url: "./posts/"
+              weight: 8
+            - name: CV
+              url: "./cv"
+              weight: 9
+            - name: ∫ research
+              url: "./research"
+              weight: 1
+            - name: ❐ graphic design
+              url: "./graphic-design"
+              weight: 2
             - name: ✐ books
               url: "./books"
               weight: 3
-  se:
-    contentDir: content/swedish
-    languageName: Svenska
-    weight: 2
+    params:
+      label:
+            text: "kian orr"
+            icon: "/earth.png"
+      hideFooter: true
+      ShowPostNavLinks: false
+      ShowToc: true
+      ShowBreadCrumbs: true
+      
+      assets:
+        favicon: "/jupiter.png"
 
-params:
-  # images: "/sweden.jpg"
-  label:
-        text: "kian orr"
-        icon: "/earth.png"
-  hideFooter: true
-  ShowPostNavLinks: false
-  ShowToc: true
-  ShowBreadCrumbs: true
-  
-  assets:
-    favicon: "/jupiter.png"
-
-  socialIcons:
-          - name: github
-            url: "https://github.com/kianorr"
-  homeInfoParams:
-      Title: "hello  (•◡•) /"
-      Content: "my name is kian johan nils orr and this is my website! :) It features different areas of my life, like [physics research](/research), [books](/books), and [graphic design](/graphic-design). 
-      I am currently in grad school, where I am beginning to do research in HED plasma physics. Below are some recent things I've done."
+      socialIcons:
+              - name: github
+                url: "https://github.com/kianorr"
+      homeInfoParams:
+          Title: "hej  (•◡•) /"
+          Content: Hej, jag heter kian johan nils orr och det här är min (svenka) sida! Det har olika områden av min liv, som fysik, böckar, och grafisk design.

@@ -1,15 +1,14 @@
 ---
 title: fusion trading cards
 date: 2024-11-15
-tags: ["physics", "graphic design"]
+tags: ["physics", "graphic-design"]
 ---
 
-For fusion week in 2024, fusion trading cards were handed out and I ended up being the artist 
-for 3 of them. 
+For fusion week in 2024, fusion trading cards were handed out and I ended up being the artist for 3 of them. 
 
 {{< figure align=center src="/trading_cards_real.jpeg" title="Trading cards" caption="The three cards that I made: C2W, Laser Megajoule, and LAPD." >}}
 
-I really enjoyed making these because I was able to play around with some different art styles also while contributing to something that I care about.
+I really enjoyed making these because I was able to play around with some different art styles while also contributing to something that I care about.
 
 ## C2W
 I am most familiar with C2W so I started out with this. I played around with using different colored squares/rectangles, in kind of a "japanese-pop" style. I think it's kind of cool.
@@ -29,4 +28,4 @@ I had fun with the background. The bottom is a discrete gradient while the top i
 in his BPSF presentations (kinda vaporwave).
 {{< figure align=center src="/lapd_card.png" title="C2W final design" caption="" width="300">}}
 
-I think you can buy the whole deck [here](https://www.makeplayingcards.com/sell/marketplace/fusion-trading-cards-2024.html) (Oak was the one in charge of eveverything).
+I think you can buy the whole deck [here](https://www.makeplayingcards.com/sell/marketplace/fusion-trading-cards-2024.html) (Oak was the one in charge of everything).

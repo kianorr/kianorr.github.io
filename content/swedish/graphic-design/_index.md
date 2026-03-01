@@ -1,27 +1,23 @@
 ---
-title: "❐ grafisk design"
+title: "❐ graphic design"
 draft: false
+summary: This is some of my graphic design stuff --- enjoy!
+tags: ["graphic design"]
 ---
 
 This is some of my graphic design stuff --- enjoy!
-Det är några av min grafisk design saker --- varsågod!  
-<!--more-->
 ___
 
-![saturn](/saturn.png#center)
-{{< center >}} saturn in neon {{< /center >}}
+{{< figure align=center src="/penguin.png" title="penguin!" >}}
 
 &nbsp;
 
-![penguin](/penguin.png#center)
-{{< center >}} pingvin! {{< /center >}}
+{{< figure align=center src="/saturn.png" title="neon saturn" caption="This is very simple but I like this kind of style a lot" >}}
 
 &nbsp;
 
-![soda](/soda.png#center)
-{{< center >}} a cute soda bottle and it's cap :) {{< /center >}}
+{{< figure align=center src="/soda.png" title="a cute soda bottle" caption="and it's cap :)">}}
 
 &nbsp;
 
-![bookmark](/bookmark_sideways.png#center)
-{{< center >}} a bookmark that I made for my mom that I am pretty proud of  {{< /center >}}
+{{< figure align=center src="/bookmark_sideways.png" title="neat bookmark" caption="ai'm rly proud of this one">}}
