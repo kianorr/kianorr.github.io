@@ -53,11 +53,11 @@ languages:
       ShowBreadCrumbs: true
       plugins:
         css:
-          link: "plugins/glightbox/glightbox.css"
+          - link: "plugins/glightbox/glightbox.css"
             #link: "plugins/swiper/swiper-bundle.css"
         js:
-          link: "plugins/glightbox/glightbox.js"
-          link: "js/gallery-slider.js"
+          - link: "plugins/glightbox/glightbox.js"
+          - link: "js/gallery-slider.js"
             #link: "plugins/swiper/swiper-bundle.js"
 
       
