@@ -44,6 +44,7 @@ languages:
                 #url: "./books"
                 #weight: 3
     params:
+      author: "kian orr"
       label:
             text: "kian orr"
             icon: "/earth.png"
