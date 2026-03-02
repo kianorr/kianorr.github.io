@@ -1,5 +1,5 @@
 ---
-title: "film photography"
+title: "◉ film photography"
 draft: false
 ---
 

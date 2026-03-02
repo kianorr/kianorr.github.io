@@ -37,7 +37,7 @@ languages:
             - name: ❐ graphic design
               url: "./graphic-design"
               weight: 2
-            - name: ❐ film photography
+            - name: ◉ film photography
               url: "./film"
               weight: 3
                 #- name: ✐ books

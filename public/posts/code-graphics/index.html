@@ -20,7 +20,7 @@ The code for it is below. There are two functions that automatically run,
 setup() (runs once like __init__) and draw() (continuously runs). So I just
 continuously increased the radius at which that ellipse is at, as well as it&rsquo;s angle with
 a couple sines and cosines to make it dynamic.">
-<meta name="author" content="">
+<meta name="author" content="kian orr">
 <link rel="canonical" href="http://localhost:1313/posts/code-graphics/">
 <script>
     document.addEventListener("DOMContentLoaded", function() {
@@ -143,8 +143,8 @@ a couple sines and cosines to make it dynamic.">
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/film" title="❐ film photography">
-                    <span>❐ film photography</span>
+                <a href="http://localhost:1313/film" title="◉ film photography">
+                    <span>◉ film photography</span>
                 </a>
             </li>
             <li>
@@ -168,7 +168,7 @@ a couple sines and cosines to make it dynamic.">
     <h1 class="post-title">
       code and graphic design
     </h1>
-    <div class="post-meta"><span title='2022-12-20 15:17:05 -0800 -0800'>December 20, 2022</span>&nbsp;|&nbsp;Translations:
+    <div class="post-meta"><span title='2022-12-20 15:17:05 -0800 -0800'>December 20, 2022</span>&nbsp;·&nbsp;kian orr&nbsp;|&nbsp;Translations:
 <ul class="i18n_list">
     <li>
         <a href="http://localhost:1313/sv/posts/code-graphics/">Sv</a>
@@ -313,6 +313,7 @@ def draw():
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const swiper = new Swiper('.gallery-slider', {
+		autoHeight: true,
                 loop: true,
                 navigation: {
                     nextEl: '.swiper-button-next',

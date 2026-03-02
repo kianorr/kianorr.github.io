@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>film photography on kian orr</title>
+    <title>◉ film photography on kian orr</title>
     <link>http://localhost:1313/film/</link>
-    <description>Recent content in film photography on kian orr</description>
+    <description>Recent content in ◉ film photography on kian orr</description>
     <generator>Hugo -- 0.138.0</generator>
     <language>en</language>
     <atom:link href="http://localhost:1313/film/index.xml" rel="self" type="application/rss+xml" />
@@ -12,7 +12,8 @@
       <link>http://localhost:1313/film/pictures/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/film/pictures/</guid>
-      <description>&lt;h2 id=&#34;sweden&#34;&gt;Sweden&lt;/h2&gt;
+      <description>&lt;p&gt;Some film photography of different places.&lt;/p&gt;
+&lt;h2 id=&#34;sweden&#34;&gt;Sweden&lt;/h2&gt;
 
 
 

@@ -3,6 +3,8 @@ title: "Pictures"
 draft: false
 ---
 
+Some film photography of different places.
+
 ## Sweden
 {{< slider dir="images/photography-section/sweden">}}
 
