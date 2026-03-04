@@ -70,6 +70,7 @@ But I think I could work on talking and introducing myself to people at posters.
 &lt;/ul&gt;
 &lt;h3 id="ucla-large-plasma-device-lapd--student-researcher-for-troy-carter"&gt;&lt;a href="https://kianorr.com/research/lapd/"&gt;UCLA Large Plasma Device (LAPD) | Student Researcher for Troy Carter&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;&lt;em&gt;August 2021 - October 2022&lt;/em&gt;&lt;/p&gt;</description></item><item><title>Parable of the Talents</title><link>https://kianorr.com/books/parable_of_the_talents/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kianorr.com/books/parable_of_the_talents/</guid><description>There&amp;rsquo;s a lot of emphasis on education; the parable of the talents is basically a story about how one should spread and teach others their talents, rather than keep them for themselves. This is also a core value of Earthseed. There is a big emphasis on education because without it</description></item><item><title>Pictures</title><link>https://kianorr.com/film/pictures/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kianorr.com/film/pictures/</guid><description>&lt;p&gt;Some film photography of different places.&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
 &lt;h2 id="sweden"&gt;Sweden&lt;/h2&gt;
 &lt;div class="swiper gallery-slider "&gt;
 &lt;div class="swiper-wrapper"&gt;
@@ -134,6 +135,19 @@ src="https://kianorr.com/images/photography-section/sweden/000048.jpg"
 class="img"
 style="margin: 0"
 alt="000048.jpg"
+height=""
+width="" /&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div
+class="swiper-slide "&gt;
+&lt;div class="gallery-item" data-i="false"&gt;
+&lt;img
+loading="lazy"
+src="https://kianorr.com/images/photography-section/sweden/000063%202.jpg"
+class="img"
+style="margin: 0"
+alt="000063 2.jpg"
 height=""
 width="" /&gt;
 &lt;/div&gt;
@@ -252,6 +266,85 @@ src="https://kianorr.com/images/photography-section/new-jersey/010270020011.jpg"
 class="img"
 style="margin: 0"
 alt="010270020011.jpg"
+height=""
+width="" /&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div
+class="swiper-slide "&gt;
+&lt;div class="gallery-item" data-i="false"&gt;
+&lt;img
+loading="lazy"
+src="https://kianorr.com/images/photography-section/new-jersey/010270020017%20%281%29.jpg"
+class="img"
+style="margin: 0"
+alt="010270020017 (1).jpg"
+height=""
+width="" /&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div
+class="swiper-slide "&gt;
+&lt;div class="gallery-item" data-i="false"&gt;
+&lt;img
+loading="lazy"
+src="https://kianorr.com/images/photography-section/new-jersey/010270020021-2.jpg"
+class="img"
+style="margin: 0"
+alt="010270020021-2.jpg"
+height=""
+width="" /&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;span class="swiper-button-prev"&gt;&lt;/span&gt;
+&lt;span class="swiper-button-next"&gt;&lt;/span&gt;
+&lt;/div&gt;
+&lt;h2 id="vermont"&gt;Vermont&lt;/h2&gt;
+&lt;div class="swiper gallery-slider "&gt;
+&lt;div class="swiper-wrapper"&gt;
+&lt;div
+class="swiper-slide "&gt;
+&lt;div class="gallery-item" data-i="false"&gt;
+&lt;img
+loading="lazy"
+src="https://kianorr.com/images/photography-section/vermont/010270030020.jpg"
+class="img"
+style="margin: 0"
+alt="010270030020.jpg"
+height=""
+width="" /&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div
+class="swiper-slide "&gt;
+&lt;div class="gallery-item" data-i="false"&gt;
+&lt;img
+loading="lazy"
+src="https://kianorr.com/images/photography-section/vermont/010270030033.jpg"
+class="img"
+style="margin: 0"
+alt="010270030033.jpg"
+height=""
+width="" /&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;span class="swiper-button-prev"&gt;&lt;/span&gt;
+&lt;span class="swiper-button-next"&gt;&lt;/span&gt;
+&lt;/div&gt;
+&lt;h2 id="japan"&gt;Japan&lt;/h2&gt;
+&lt;div class="swiper gallery-slider "&gt;
+&lt;div class="swiper-wrapper"&gt;
+&lt;div
+class="swiper-slide "&gt;
+&lt;div class="gallery-item" data-i="false"&gt;
+&lt;img
+loading="lazy"
+src="https://kianorr.com/images/photography-section/japan/010270010014-2.jpg"
+class="img"
+style="margin: 0"
+alt="010270010014-2.jpg"
 height=""
 width="" /&gt;
 &lt;/div&gt;
