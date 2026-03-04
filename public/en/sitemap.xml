@@ -141,6 +141,8 @@
                 href="http://localhost:1313/posts/aps-experience/"
                 />
   </url><url>
+    <loc>http://localhost:1313/film/</loc>
+  </url><url>
     <loc>http://localhost:1313/books/</loc>
     <xhtml:link
                 rel="alternate"
@@ -176,8 +178,6 @@
                 hreflang="en"
                 href="http://localhost:1313/posts/bin-average/"
                 />
-  </url><url>
-    <loc>http://localhost:1313/film/</loc>
   </url><url>
     <loc>http://localhost:1313/books/handmaids_tale/</loc>
     <xhtml:link

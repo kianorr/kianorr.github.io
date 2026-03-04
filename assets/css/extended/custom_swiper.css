@@ -3,4 +3,16 @@
   --swiper-navigation-size: 30px;    /* Change arrow size */
 }
 
+.swiper-button-next,
+.swiper-button-prev {
+  transition: opacity 0.5s ease;
+  opacity: 1;
+}
+
+/* Hide when idle/not hovered */
+.swiper-container:not(:hover) .swiper-button-next,
+.swiper-container:not(:hover) .swiper-button-prev {
+  opacity: 0;
+  pointer-events: none; /* Prevents clicking when invisible */
+}
 

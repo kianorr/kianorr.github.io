@@ -13,6 +13,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/film/pictures/</guid>
       <description>&lt;p&gt;Some film photography of different places.&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
 &lt;h2 id=&#34;sweden&#34;&gt;Sweden&lt;/h2&gt;
 
 
@@ -157,6 +158,31 @@
                     class=&#34;img&#34;
                     style=&#34;margin: 0&#34;
                     alt=&#34;000048.jpg&#34;
+                    height=&#34;&#34;
+                    width=&#34;&#34; /&gt;
+                
+              &lt;/div&gt;
+            &lt;/div&gt;
+          
+        
+      
+        
+          
+          
+          
+          
+          
+
+            &lt;div
+              class=&#34;swiper-slide &#34;&gt;
+              &lt;div class=&#34;gallery-item&#34; data-i=&#34;false&#34;&gt;
+                
+                  &lt;img
+                    loading=&#34;lazy&#34;
+                    src=&#34;http://localhost:1313/images/photography-section/sweden/000063%202.jpg&#34;
+                    class=&#34;img&#34;
+                    style=&#34;margin: 0&#34;
+                    alt=&#34;000063 2.jpg&#34;
                     height=&#34;&#34;
                     width=&#34;&#34; /&gt;
                 
@@ -435,6 +461,207 @@
                     class=&#34;img&#34;
                     style=&#34;margin: 0&#34;
                     alt=&#34;010270020011.jpg&#34;
+                    height=&#34;&#34;
+                    width=&#34;&#34; /&gt;
+                
+              &lt;/div&gt;
+            &lt;/div&gt;
+          
+        
+      
+        
+          
+          
+          
+          
+          
+
+            &lt;div
+              class=&#34;swiper-slide &#34;&gt;
+              &lt;div class=&#34;gallery-item&#34; data-i=&#34;false&#34;&gt;
+                
+                  &lt;img
+                    loading=&#34;lazy&#34;
+                    src=&#34;http://localhost:1313/images/photography-section/new-jersey/010270020017%20%281%29.jpg&#34;
+                    class=&#34;img&#34;
+                    style=&#34;margin: 0&#34;
+                    alt=&#34;010270020017 (1).jpg&#34;
+                    height=&#34;&#34;
+                    width=&#34;&#34; /&gt;
+                
+              &lt;/div&gt;
+            &lt;/div&gt;
+          
+        
+      
+        
+          
+          
+          
+          
+          
+
+            &lt;div
+              class=&#34;swiper-slide &#34;&gt;
+              &lt;div class=&#34;gallery-item&#34; data-i=&#34;false&#34;&gt;
+                
+                  &lt;img
+                    loading=&#34;lazy&#34;
+                    src=&#34;http://localhost:1313/images/photography-section/new-jersey/010270020021-2.jpg&#34;
+                    class=&#34;img&#34;
+                    style=&#34;margin: 0&#34;
+                    alt=&#34;010270020021-2.jpg&#34;
+                    height=&#34;&#34;
+                    width=&#34;&#34; /&gt;
+                
+              &lt;/div&gt;
+            &lt;/div&gt;
+          
+        
+      
+
+    
+    
+  &lt;/div&gt;
+
+  
+  &lt;span class=&#34;swiper-button-prev&#34;&gt;&lt;/span&gt;
+  &lt;span class=&#34;swiper-button-next&#34;&gt;&lt;/span&gt;
+&lt;/div&gt;
+
+
+&lt;h2 id=&#34;vermont&#34;&gt;Vermont&lt;/h2&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;div class=&#34;swiper gallery-slider &#34;&gt;
+  &lt;div class=&#34;swiper-wrapper&#34;&gt;
+    
+    
+
+      
+        
+          
+          
+          
+          
+          
+
+            &lt;div
+              class=&#34;swiper-slide &#34;&gt;
+              &lt;div class=&#34;gallery-item&#34; data-i=&#34;false&#34;&gt;
+                
+                  &lt;img
+                    loading=&#34;lazy&#34;
+                    src=&#34;http://localhost:1313/images/photography-section/vermont/010270030020.jpg&#34;
+                    class=&#34;img&#34;
+                    style=&#34;margin: 0&#34;
+                    alt=&#34;010270030020.jpg&#34;
+                    height=&#34;&#34;
+                    width=&#34;&#34; /&gt;
+                
+              &lt;/div&gt;
+            &lt;/div&gt;
+          
+        
+      
+        
+          
+          
+          
+          
+          
+
+            &lt;div
+              class=&#34;swiper-slide &#34;&gt;
+              &lt;div class=&#34;gallery-item&#34; data-i=&#34;false&#34;&gt;
+                
+                  &lt;img
+                    loading=&#34;lazy&#34;
+                    src=&#34;http://localhost:1313/images/photography-section/vermont/010270030033.jpg&#34;
+                    class=&#34;img&#34;
+                    style=&#34;margin: 0&#34;
+                    alt=&#34;010270030033.jpg&#34;
+                    height=&#34;&#34;
+                    width=&#34;&#34; /&gt;
+                
+              &lt;/div&gt;
+            &lt;/div&gt;
+          
+        
+      
+
+    
+    
+  &lt;/div&gt;
+
+  
+  &lt;span class=&#34;swiper-button-prev&#34;&gt;&lt;/span&gt;
+  &lt;span class=&#34;swiper-button-next&#34;&gt;&lt;/span&gt;
+&lt;/div&gt;
+
+
+&lt;h2 id=&#34;japan&#34;&gt;Japan&lt;/h2&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;div class=&#34;swiper gallery-slider &#34;&gt;
+  &lt;div class=&#34;swiper-wrapper&#34;&gt;
+    
+    
+
+      
+        
+          
+          
+          
+          
+          
+
+            &lt;div
+              class=&#34;swiper-slide &#34;&gt;
+              &lt;div class=&#34;gallery-item&#34; data-i=&#34;false&#34;&gt;
+                
+                  &lt;img
+                    loading=&#34;lazy&#34;
+                    src=&#34;http://localhost:1313/images/photography-section/japan/010270010014-2.jpg&#34;
+                    class=&#34;img&#34;
+                    style=&#34;margin: 0&#34;
+                    alt=&#34;010270010014-2.jpg&#34;
                     height=&#34;&#34;
                     width=&#34;&#34; /&gt;
                 
