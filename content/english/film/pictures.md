@@ -5,10 +5,6 @@ draft: false
 
 Some film photography of different places.
 
-
-<img src="jupiter.png">
-<img src="saturn.png">
-
 ## Sweden
 {{< slider dir="images/photography-section/sweden">}}
 
