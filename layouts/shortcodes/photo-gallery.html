@@ -1,0 +1,18 @@
+<div class="photo-gallery">
+    {{ range .Page.Params.photos }}
+    <!-- {{ if .IsDir }} -->
+    <!-- <p>{{ .src }}</p> -->
+    <!-- {{ $files    := readDir "{{ .src }}" }} -->
+    <!-- <p> {{ .src }} </p> -->
+    <!-- {{ range $files }}
+      <div class="gallery-item">
+      </div>
+    {{ end }} -->
+  <!-- {{ else }} -->
+    <div class="gallery-item">
+      <img src="{{ .src }}" alt="{{ .alt }}" data-desc="{{ .desc }}" data-location="{{ .location }}" data-film="{{ .film }}"  loading="lazy" />
+      <!-- <div class="desc">{{ .desc }}</div> -->
+    </div>
+  <!-- {{ end }} -->
+  {{ end }}
+</div>

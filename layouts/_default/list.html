@@ -98,12 +98,38 @@
     {{.Content}}
 </article> -->
 
+<div class="thumbnail" style="flex-direction: row">
 <ul style="list-style-type:none;">
+{{ range .Pages}}
+  {{if eq .Parent.Title "◉ film photography"}}
+  <a 
+    href="{{ .Permalink }}">
+    <div class="entry-thumbnail">
+      <!-- <img src="{{ .Params.thumbnail }}"  style="width: 200px; height: auto; margin:0; flex-direction: row" > -->
+      <img src="{{ .Params.thumbnail }}" >
+      <!-- {{ with .Resources.Get .Params.thumbnail }}
+        <img src="{{ .RelPermalink }}"  style="width: 200px; height: auto; margin:0;" >
+      {{ end }} -->
 
+      <!-- <div>
+        <h2>{{ .Title }}</h2>
+        <div class="entry-content">
+          <p>{{ .Summary | plainify | htmlUnescape }}{{ if .Truncated }}...{{ end }}</p>
+        </div>
+      </div> -->
+    </div>
+  </a>
+{{end}}
+{{end}}
+</ul>
+</div>
+
+<ul style="list-style-type:none;">
 {{ range .Pages}}
 	{{- $isHidden := (site.Params.cover.hidden | default site.Params.cover.hiddenInList) }}
 	{{- partial "cover.html" (dict "cxt" . "IsHome" true "isHidden" $isHidden) }}
 	{{if ne .Title "◉ film photography"}}
+  {{if ne .Parent.Title "◉ film photography"}}
 	{{if ne .Title "∫ research"}}
 	{{if ne .Title "❐ graphic design"}}
 	{{if ne .Title "Kian Orr | Curriculum Vitae"}}
@@ -111,7 +137,7 @@
 	    <li>
 	        <h3>
 	            <br>
-	                <u><a href="{{.Permalink}}">{{.Title}}</a></u>
+	                <u> <a href="{{ .Permalink }}">{{.Title}} </a> </u>
 	                {{- if .Draft }}<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>{{- end }}
 	            </br>
 	        </h3>
@@ -124,6 +150,7 @@
 	    {{- partial "post_meta.html" . -}}
 	  </footer>
   	{{- end }}
+    {{end}}
     {{end}}
     {{end}}
     {{end}}

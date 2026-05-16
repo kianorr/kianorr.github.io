@@ -1,0 +1,95 @@
+.photo-gallery {
+  columns: 3 200px;
+  row-gap: 12px;
+  column-gap: 12px;
+  width: 100%;
+  margin: 2rem 0;
+}
+
+.gallery-item {
+  width: 100%;
+  display: inline-block;
+  /* margin-bottom: 12px; */
+  break-inside: avoid;
+  margin: 0;
+}
+
+.gallery-item img {
+  width: 100%;
+  display: block;
+  border-radius: 6px;
+  transition: transform 0.2s ease;
+  margin: 0 0 0px 0;
+  /* padding: 0; */
+  /* row-gap: 12px; */
+}
+
+.gallery-item img:hover {
+  transform: scale(1.02);
+}
+
+/* div.gallery-item div.desc {
+    text-align: center;
+    color: var(--secondary);
+    font-size: 10px;
+    line-height: 1.6;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+} */
+
+/* Lightbox overlay */
+.gallery-lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+  cursor: zoom-out;
+}
+.gallery-lightbox.active { display: flex; }
+.gallery-lightbox img {
+  margin: 20px 20px 20px 20px;
+  max-width: 90vw;
+  max-height: 90vh;
+  border-radius: 4px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.6);
+}
+
+div.gallery-lightbox div.gallery-lightbox-caption {
+    /* display: block; */
+    /* margin: 0px 20px; */
+    color: var(--secondary);
+    font-size: 16px;
+    line-height: 1.6;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+}
+
+div.gallery-lightbox div.gallery-lightbox-location {
+    /* display: block; */
+    margin: 10px 0 0px;
+    color: var(--secondary);
+    font-size: 12px;
+    line-height: 1.6;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+}
+
+div.gallery-lightbox div.gallery-lightbox-film {
+    margin: 0px 0 0px;
+    color: var(--secondary);
+    font-size: 12px;
+    line-height: 1.6;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+}
