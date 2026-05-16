@@ -20,7 +20,7 @@
         });
     });
 </script>
-<link crossorigin="anonymous" href="/assets/css/stylesheet.397bd25cce72fd2d7ffa08c14340d9ce4e2eeaf6232f8d83f6e596a449b5b0a5.css" integrity="sha256-OXvSXM5y/S1/&#43;gjBQ0DZzk4u6vYjL42D9uWWpEm1sKU=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.ad7189f1e35b24e931756f422623d6475eb85872fc57eaa7d9b5d293b6ba16bd.css" integrity="sha256-rXGJ8eNbJOkxdW9CJiPWR164WHL8V&#43;qn2bXSk7a6Fr0=" rel="preload stylesheet" as="style">
 <link rel="icon" href="http://localhost:1313/jupiter.png">
 <link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
@@ -160,7 +160,42 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
         <path d="M12 6H0l6-6z" />
     </svg>
-</a>
+</a><div class="gallery-lightbox" id="galleryLightbox">
+  <img id="lightboxImg" src="" alt="" data-desc="" data-location="" />
+  <div class="galler-lightbox-text" id="lightboxText">
+    <div class="gallery-lightbox-caption" id="lightboxCaption"></div> 
+    <div class="gallery-lightbox-location" id="lightboxLocation"></div>
+    <div class="gallery-lightbox-film" id="lightboxFilm"></div>
+  </div>
+</div>
+<script>
+  const lightbox = document.getElementById('galleryLightbox');
+  const lightboxImg = document.getElementById('lightboxImg');
+  const lightboxCap = document.getElementById('lightboxCaption');
+  const lightboxLoc = document.getElementById('lightboxLocation');
+  const lightboxFilm = document.getElementById('lightboxFilm');
+
+
+  document.querySelectorAll('.gallery-item img').forEach(img => {
+    img.style.cursor = 'zoom-in';
+    img.addEventListener('click', () => {
+      lightboxImg.src = img.src;
+      lightboxImg.alt = img.alt;
+    
+      lightboxCap.innerHTML = img.dataset.desc;
+    
+      lightboxLoc.innerHTML = img.dataset.location;
+      lightboxFilm.innerHTML = img.dataset.film;
+      lightbox.classList.add('active');
+    });
+  });
+
+  lightbox.addEventListener('click', () => lightbox.classList.remove('active'));
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') lightbox.classList.remove('active');
+  });
+</script>
 
 <script>
     let menu = document.getElementById('menu')
