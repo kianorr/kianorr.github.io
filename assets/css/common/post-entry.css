@@ -2,24 +2,19 @@
 
 .thumbnail ul {
   display: flex;
-  /* outline: 3px solid blue; */
   flex-wrap: wrap;
   justify-content: center;
   gap: 15px;
-  /* height: 300px;
-  width: 100px; */
 }
 
 .entry-thumbnail {
   width: 200px;  /* Or whatever */
   height: auto; /* Or whatever */
-  margin: auto;  /* Magic! */
+  /* margin-bottom: 40px; */
+  /* margin: auto; */
+  margin-bottom: var(--gap);
   /* outline: 3px solid blue; */
 }
-/* .thumbnail .entry-thumbnail {
-    -webkit-flex: 1;
-    flex: 1 1 200px;
-} */
 
 .entry-thumbnail img { 
     max-width: 100%;
@@ -27,37 +22,45 @@
     height: auto;
     flex: 1 1 auto;
     /* outline: 3px solid rgb(219, 128, 37); */
+    /* margin-top: 10px;
+    margin-bottom: 10px; */
 }
-/* .entry-thumbnail div { 
-    float:left; 
-    width: 80%;
-} */
-/* .entry-thumbnail {
-    clear: both;
-    display: flex;
-    justify-content: center;
-    margin-bottom: var(--gap);
-    gap: 15px;
-} */
-/* .entry-thumbnail .entry-content {
-    margin: 8px 0;
-    color: var(--secondary);
-    font-size: 14px;
-    line-height: 1.6;
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3;
-} */
-.entry-thumbnail img:hover {
+
+.entry-thumbnail:hover{
   transform: scale(1.02);
   transition: transform 0.4s;
 }
-/* .entry-thumbnail h1 {
+div.thumbnail div.entry-thumbnail-title {
     display: flex;
     align-items: center;
-    gap: 15px;
-} */
+    justify-content: center;
+    text-align: center;
+    font-size: 14px;
+    margin-top: -40px;
+}
+
+@media screen and (max-width: 768px) {
+    .thumbnail ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        column-gap: 15px;
+        row-gap: 10px;
+    }
+    .entry-thumbnail {
+        width: 150px;
+        height: auto;
+    }
+    div.thumbnail div.entry-thumbnail-title {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        font-size: 11px;
+        margin-top: -30px;
+    }
+}
+
 
 
 .first-entry {

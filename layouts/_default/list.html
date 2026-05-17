@@ -98,7 +98,7 @@
     {{.Content}}
 </article> -->
 
-<div class="thumbnail" style="flex-direction: row">
+<div class="thumbnail">
 <ul style="list-style-type:none;">
 {{ range .Pages}}
   {{if eq .Parent.Title "◉ film photography"}}
@@ -110,13 +110,11 @@
       <!-- {{ with .Resources.Get .Params.thumbnail }}
         <img src="{{ .RelPermalink }}"  style="width: 200px; height: auto; margin:0;" >
       {{ end }} -->
-
-      <!-- <div>
+      
+      <!-- <h2>{{ .Title }}</h2> -->
+      <div class="entry-thumbnail-title">
         <h2>{{ .Title }}</h2>
-        <div class="entry-content">
-          <p>{{ .Summary | plainify | htmlUnescape }}{{ if .Truncated }}...{{ end }}</p>
-        </div>
-      </div> -->
+      </div>
     </div>
   </a>
 {{end}}
