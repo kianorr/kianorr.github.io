@@ -55,18 +55,28 @@
 @media screen and (max-width: 768px) {
   .gallery-lightbox {
     flex-direction: column;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
+    align-content: center;
   }
   div.gallery-lightbox div.gallery-lightbox-location {
-    justify-content: center;
-    align-items: center;
+    /* justify-content: center; */
+    /* align-items: center;
+    align-content: center; */
+    /* max-width: 60%; */
+    /* outline: 3px solid blue; */
+    /* margin-top: 0; */
+    /* margin-bottom: 20px; */
+    text-align: center;
   }
   div.gallery-lightbox div.gallery-lightbox-caption {
-    justify-content: center;
-    align-items: center;
+    /* justify-content: center; */
+    /* align-items: center;
+    align-content: center; */
+    text-align: center;
   }
 }
+
 .gallery-lightbox.active { display: flex; }
 .gallery-lightbox img {
   margin: 20px 20px 20px 20px;
