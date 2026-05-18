@@ -8,7 +8,7 @@
 }
 
 .entry-thumbnail {
-  width: 200px;  /* Or whatever */
+  width: 200px;
   height: auto; /* Or whatever */
   /* margin-bottom: 40px; */
   /* margin: auto; */
@@ -46,9 +46,12 @@ div.thumbnail div.entry-thumbnail-title {
         justify-content: center;
         column-gap: 15px;
         row-gap: 10px;
+        /* outline: 3px solid rgb(219, 128, 37); */
+        /* width: 100%; */
     }
     .entry-thumbnail {
         width: 150px;
+        /* max-width: 50vw; */
         height: auto;
     }
     div.thumbnail div.entry-thumbnail-title {
