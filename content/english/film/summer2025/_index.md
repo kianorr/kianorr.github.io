@@ -4,6 +4,24 @@ draft: false
 date: 2025-08-01
 thumbnail: https://res.cloudinary.com/dqamcwd1j/image/upload/q_auto/f_auto/v1776917828/thumbnail_lq3yuq.jpg
 photos:
+    - src: https://res.cloudinary.com/dqamcwd1j/image/upload/v1783096582/000006300007_rjhcua.jpg 
+      alt: train fields
+      desc: Daydreaming on the train to Germany
+      location: Czechia
+      film: Cinestill 800T
+    - src: https://res.cloudinary.com/dqamcwd1j/image/upload/v1783041070/000006300036_bniaei.jpg
+      alt: night bridge
+      desc: Summer night
+      film: Cinestill 800T
+      location: Prague, Czechia
+    - src: https://res.cloudinary.com/dqamcwd1j/image/upload/v1783037646/000006310020_ph5shr.jpg
+      alt: fish poles
+      desc: Fishing next to the train
+      film: Fujifilm 200
+      location: San Clemente, CA
+    - src: https://res.cloudinary.com/dqamcwd1j/image/upload/v1782783706/000006340020_o1kssf.jpg
+      location: Fort Lee, NJ
+      film: Kodak Gold 200
     - src: https://res.cloudinary.com/dqamcwd1j/image/upload/q_auto/f_auto/v1776917832/000016190005_k1icxj.jpg
       alt: purple tree
       desc: Purple pinholes.
@@ -17,7 +35,7 @@ photos:
       alt: ny spikes
       desc: Fancy New York
       location: NYC, NY
-      year: Summer, 2024
+      year: Summer 2024
     - src: https://res.cloudinary.com/dqamcwd1j/image/upload/q_auto/f_auto/v1776917830/000016190008_jdmosm.jpg
       alt: house
       desc: House in an ocean of purple.

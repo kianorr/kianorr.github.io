@@ -2,11 +2,23 @@
 title: "Fall"
 draft: false
 date: 2025-10-01
-thumbnail: https://res.cloudinary.com/dqamcwd1j/image/upload/q_auto/f_auto/v1776916594/000016220016_mscese.jpg
+thumbnail: https://res.cloudinary.com/dqamcwd1j/image/upload/v1777169095/010270020001_bnxrgo.jpg
 photos:
-    - src: https://res.cloudinary.com/dqamcwd1j/image/upload/q_auto/f_auto/v1777147361/010270020017_x2p3yz.jpg
-      alt: sdff
-      desc: A perfect depiction of fall.
+    - src: https://res.cloudinary.com/dqamcwd1j/image/upload/v1782789700/000006290010_ywqmln.jpg
+      location: Princeton, NJ
+      film: Kodak Gold 200
+    - src: https://res.cloudinary.com/dqamcwd1j/image/upload/v1782789759/000006310010_ukchld.jpg
+      location: Manhattan, NY
+      film: Fujifilm 200
+      desc: Glimpse of peace
+    - src: https://res.cloudinary.com/dqamcwd1j/image/upload/v1782783770/000006330028_v7mpfn.jpg
+      location: Princeton, NJ
+      desc: Photogenic leaves
+      alt: red leaves
+      film: Kodak Gold 200
+    - src: https://res.cloudinary.com/dqamcwd1j/image/upload/v1783225407/010270020017-5_maqnjn.jpg 
+      alt: big tree small person
+      desc: A moment of quiet under transience
       location: Princeton Battlefield, NJ
       year: Fall, 2024
     - src: https://res.cloudinary.com/dqamcwd1j/image/upload/q_auto/f_auto/v1777147390/010270020021-2_m5wav1.jpg
